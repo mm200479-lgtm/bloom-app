@@ -15,17 +15,17 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
-// Firebase config — set via environment variables
+// Firebase config for Bloom app (Social Stars project)
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || '',
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || '',
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || '',
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '',
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
+  apiKey: "AIzaSyBaJmUr1X2qERlzF4Lkl_9vHC3WqDFHu3U",
+  authDomain: "social-stars-368b4.firebaseapp.com",
+  projectId: "social-stars-368b4",
+  storageBucket: "social-stars-368b4.firebasestorage.app",
+  messagingSenderId: "443135313430",
+  appId: "1:443135313430:web:83ae6d0084c5752baf1737",
 };
 
-const hasConfig = firebaseConfig.apiKey && firebaseConfig.projectId;
+const hasConfig = true;
 
 let app = null;
 let auth = null;
