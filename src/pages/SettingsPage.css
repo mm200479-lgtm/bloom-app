@@ -48,6 +48,60 @@
 
 /* Profile section */
 .profile-info {
+  display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px;
+}
+
+.profile-avatar-display {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.current-avatar { font-size: 40px; }
+
+.edit-avatar-btn {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary);
+  color: var(--text-light); display: flex; align-items: center; justify-content: center;
+}
+
+.avatar-edit-grid {
+  display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px;
+}
+
+.avatar-option {
+  font-size: 20px; padding: 6px 2px; border-radius: 8px; background: var(--bg-secondary);
+  border: 2px solid transparent;
+}
+
+.avatar-option.active { border-color: var(--lavender-dark); background: var(--lavender); }
+
+.name-display {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.current-name { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+
+.edit-name-btn {
+  display: flex; align-items: center; gap: 4px; background: transparent;
+  color: var(--text-light); font-size: 12px; font-weight: 600;
+}
+
+.name-edit-row { display: flex; gap: 6px; align-items: center; }
+.name-edit-row .input-field { flex: 1; font-size: 16px; font-weight: 600; }
+
+.name-save-btn {
+  padding: 8px 14px; border-radius: 8px; background: var(--sage);
+  font-size: 13px; font-weight: 700; color: var(--text-primary);
+}
+
+.switch-profile-btn {
+  display: flex; align-items: center; gap: 6px; padding: 10px 14px;
+  border-radius: 10px; background: var(--bg-secondary); color: var(--text-secondary);
+  font-size: 13px; font-weight: 600; width: 100%;
+}
+
+.switch-profile-btn:hover { background: var(--lavender); }
+
+/* Profile section */
+.profile-info {
   display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 12px;
 }
 

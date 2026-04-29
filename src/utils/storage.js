@@ -29,13 +29,13 @@ export function getProfiles() {
   }
 }
 
-function saveProfiles(profiles) {
+export function saveProfiles(profiles) {
   localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
 }
 
 export function createProfile(name, avatar) {
   const profiles = getProfiles();
-  const id = 'profile_' + Date.now();
+  const id = `profile_${Date.now()}`;
   const profile = { id, name: name.trim(), avatar: avatar || '🌸', createdAt: new Date().toISOString() };
   profiles.push(profile);
   saveProfiles(profiles);
@@ -68,21 +68,22 @@ export function getActiveProfileId() {
   return localStorage.getItem(ACTIVE_PROFILE_KEY);
 }
 
-export function getActiveProfile() {
-  const id = getActiveProfileId();
-  if (!id) return null;
-  return getProfiles().find(p => p.id === id) || null;
-}
-
 export function setActiveProfile(id) {
   localStorage.setItem(ACTIVE_PROFILE_KEY, id);
 }
 
+export function getActiveProfile() {
+  const id = getActiveProfileId();
+  if (!id) return null;
+  const profiles = getProfiles();
+  return profiles.find(p => p.id === id) || null;
+}
+
 // --- Namespaced data access ---
 function profileKey(key) {
-  const profileId = getActiveProfileId();
-  if (!profileId) return `bloom_${key}`;
-  return `${profileId}_${key}`;
+  const id = getActiveProfileId();
+  if (!id) return `bloom_${key}`;
+  return `${id}_${key}`;
 }
 
 export function getData(key) {
@@ -308,6 +309,7 @@ export function getSettings() {
   return getData(STORAGE_KEYS.SETTINGS) || {
     theme: 'light',
     colorScheme: 'lavender',
+    reminderTime: null,
   };
 }
 

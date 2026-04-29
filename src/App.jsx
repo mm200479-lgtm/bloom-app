@@ -59,10 +59,8 @@ function App() {
     window.scrollTo(0, 0);
   };
 
-  const handleProfileSelected = (p) => {
-    setProfile(p);
-    setActiveTab('home');
-    setSettings(getSettings());
+  const handleSettingsChange = (newSettings) => {
+    setSettings(newSettings);
   };
 
   const handleSwitchProfile = () => {
@@ -70,8 +68,9 @@ function App() {
     setActiveTab('home');
   };
 
-  const handleSettingsChange = (newSettings) => {
-    setSettings(newSettings);
+  const handleProfileSelected = (p) => {
+    setProfile(p);
+    setSettings(getSettings());
   };
 
   // Show profile picker if no active profile
