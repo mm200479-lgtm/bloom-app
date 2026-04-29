@@ -1,0 +1,52 @@
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--white);
+  border-top: 1px solid rgba(200, 180, 220, 0.2);
+  padding: 6px 4px 10px;
+  z-index: 100;
+  box-shadow: 0 -4px 20px var(--shadow);
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  min-width: 52px;
+}
+
+.nav-btn.active {
+  color: var(--lavender-dark);
+  background: rgba(200, 168, 232, 0.1);
+}
+
+.nav-btn:hover {
+  color: var(--lavender-dark);
+}
+
+.nav-label {
+  font-size: 10px;
+  line-height: 1;
+}

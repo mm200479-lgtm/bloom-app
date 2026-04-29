@@ -1,0 +1,185 @@
+.home-page {
+  padding: 20px 16px;
+}
+
+.home-header {
+  margin-bottom: 20px;
+}
+
+.greeting-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--lavender-dark);
+}
+
+.greeting-card {
+  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  border-radius: 16px;
+  padding: 16px 20px;
+}
+
+.greeting-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.greeting-text h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.greeting-note {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  padding-left: 26px;
+}
+
+/* Affirmation */
+.affirmation-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid rgba(232, 160, 184, 0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.affirmation-card svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.affirmation-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Streak */
+.streak-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #fff5e8, #ffe8d0);
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.streak-count {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.streak-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Quick Actions */
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 12px;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-md);
+}
+
+.action-emoji {
+  font-size: 28px;
+}
+
+.action-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Today's moods */
+.mood-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mood-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--lavender);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mood-time {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* Safety reminder */
+.safety-reminder {
+  text-align: center;
+  margin-top: 8px;
+  padding: 16px;
+}
+
+.safety-btn {
+  background: linear-gradient(135deg, var(--sky), var(--sage));
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 24px;
+  width: 100%;
+}
+
+.safety-btn:hover {
+  box-shadow: 0 4px 12px var(--shadow-md);
+}
+
+.safety-note {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 6px;
+}

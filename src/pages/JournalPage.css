@@ -1,0 +1,223 @@
+.journal-page {
+  padding: 20px 16px;
+}
+
+/* Entry type selection */
+.entry-types {
+  margin-bottom: 20px;
+}
+
+.entry-type-btn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--cream);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.entry-type-btn:hover {
+  background: var(--lavender);
+}
+
+.type-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.type-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Writing area */
+.writing-area {
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 0;
+  margin-bottom: 12px;
+}
+
+.prompt-card {
+  background: linear-gradient(135deg, var(--lavender), var(--sky));
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.prompt-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.shuffle-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.worry-intro {
+  background: rgba(232, 208, 160, 0.2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.worry-intro p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.journal-textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--cream);
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  min-height: 180px;
+}
+
+.journal-textarea::placeholder {
+  color: var(--text-light);
+}
+
+/* Gratitude */
+.gratitude-intro {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.gratitude-inputs {
+  margin-bottom: 14px;
+}
+
+.gratitude-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.gratitude-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lavender-dark);
+  width: 20px;
+}
+
+.gratitude-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--cream);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.gratitude-input::placeholder {
+  color: var(--text-light);
+}
+
+.save-entry-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Past entries */
+.entries-section {
+  margin-top: 24px;
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.entry-card {
+  background: var(--white);
+  border: 1px solid rgba(200, 180, 220, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entry-type-badge {
+  font-size: 16px;
+}
+
+.entry-date {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.entry-body {
+  padding: 0 14px 14px;
+}
+
+.entry-text {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.delete-entry-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 12px;
+  padding: 6px 0;
+  margin-top: 8px;
+}
+
+.delete-entry-btn:hover {
+  color: var(--danger);
+}
