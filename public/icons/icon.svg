@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8d5f5"/>
+      <stop offset="50%" stop-color="#f0d0e4"/>
+      <stop offset="100%" stop-color="#f5dde8"/>
+    </linearGradient>
+    <linearGradient id="stem" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8aba8a"/>
+      <stop offset="100%" stop-color="#6a9a6a"/>
+    </linearGradient>
+    <linearGradient id="petal1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5c0d8"/>
+      <stop offset="100%" stop-color="#e8a0c0"/>
+    </linearGradient>
+    <linearGradient id="petal2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0b8d0"/>
+      <stop offset="100%" stop-color="#e098b8"/>
+    </linearGradient>
+    <linearGradient id="petal3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8d0e0"/>
+      <stop offset="100%" stop-color="#e8b0c8"/>
+    </linearGradient>
+    <radialGradient id="center" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe8a0"/>
+      <stop offset="70%" stop-color="#f0d080"/>
+      <stop offset="100%" stop-color="#e0c070"/>
+    </radialGradient>
+    <filter id="soft" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- Subtle glow behind flower -->
+  <circle cx="256" cy="230" r="120" fill="white" opacity="0.15"/>
+
+  <!-- Stem -->
+  <path d="M256 295 Q252 340 248 390 Q246 410 250 430" stroke="url(#stem)" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- Left leaf -->
+  <path d="M249 370 Q220 350 200 365 Q215 345 249 360" fill="#7aaa7a" opacity="0.8"/>
+  <line x1="248" y1="365" x2="218" y2="358" stroke="#6a9a6a" stroke-width="1" opacity="0.5"/>
+
+  <!-- Right leaf -->
+  <path d="M251 345 Q280 325 298 342 Q278 328 251 338" fill="#7aaa7a" opacity="0.7"/>
+  <line x1="252" y1="341" x2="280" y2="334" stroke="#6a9a6a" stroke-width="1" opacity="0.5"/>
+
+  <!-- Petals - 5 cherry blossom petals -->
+  <!-- Each petal has the characteristic notch at the tip -->
+
+  <!-- Petal 1 - top -->
+  <path d="M256 220 Q240 170 230 145 Q238 135 256 138 Q274 135 282 145 Q272 170 256 220Z" fill="url(#petal1)" opacity="0.9"/>
+  <path d="M256 138 L256 155" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Petal 2 - top right -->
+  <path d="M256 220 Q290 185 315 170 Q325 178 322 196 Q318 214 290 225 Q270 232 256 220Z" fill="url(#petal2)" opacity="0.85"/>
+  <path d="M322 196 L305 200" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Petal 3 - bottom right -->
+  <path d="M256 220 Q280 240 298 265 Q296 278 280 280 Q264 278 252 258 Q248 240 256 220Z" fill="url(#petal3)" opacity="0.9"/>
+  <path d="M280 280 L270 265" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Petal 4 - bottom left -->
+  <path d="M256 220 Q232 240 214 265 Q216 278 232 280 Q248 278 260 258 Q264 240 256 220Z" fill="url(#petal1)" opacity="0.85"/>
+  <path d="M232 280 L242 265" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Petal 5 - top left -->
+  <path d="M256 220 Q222 185 197 170 Q187 178 190 196 Q194 214 222 225 Q242 232 256 220Z" fill="url(#petal2)" opacity="0.9"/>
+  <path d="M190 196 L207 200" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Inner petal highlights -->
+  <circle cx="256" cy="195" r="4" fill="white" opacity="0.2"/>
+  <circle cx="275" cy="210" r="3" fill="white" opacity="0.15"/>
+  <circle cx="237" cy="210" r="3" fill="white" opacity="0.15"/>
+
+  <!-- Center -->
+  <circle cx="256" cy="222" r="18" fill="url(#center)"/>
+  <circle cx="256" cy="222" r="12" fill="#f0d888" opacity="0.6"/>
+
+  <!-- Stamens -->
+  <line x1="256" y1="222" x2="250" y2="210" stroke="#d0a850" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="250" cy="209" r="2.5" fill="#e0b860" opacity="0.8"/>
+
+  <line x1="256" y1="222" x2="264" y2="212" stroke="#d0a850" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="264" cy="211" r="2.5" fill="#e0b860" opacity="0.8"/>
+
+  <line x1="256" y1="222" x2="256" y2="208" stroke="#d0a850" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="256" cy="207" r="2.5" fill="#e0b860" opacity="0.8"/>
+
+  <line x1="256" y1="222" x2="246" y2="216" stroke="#d0a850" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="245" cy="215" r="2" fill="#e0b860" opacity="0.7"/>
+
+  <line x1="256" y1="222" x2="268" y2="218" stroke="#d0a850" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="269" cy="217" r="2" fill="#e0b860" opacity="0.7"/>
+
+  <!-- Floating petals (decorative) -->
+  <path d="M380 120 Q370 105 375 95 Q385 100 380 120Z" fill="#f0c0d4" opacity="0.4" transform="rotate(15 380 107)"/>
+  <path d="M140 400 Q130 385 135 375 Q145 380 140 400Z" fill="#f0c0d4" opacity="0.3" transform="rotate(-20 140 387)"/>
+  <path d="M400 380 Q390 365 395 355 Q405 360 400 380Z" fill="#e8b0c8" opacity="0.25" transform="rotate(30 400 367)"/>
+</svg>
