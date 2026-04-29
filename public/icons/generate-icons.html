@@ -1,0 +1,78 @@
+<!-- Open this file in a browser to generate PNG icons, then save them -->
+<!-- Or just use the SVG icon directly - modern devices handle it well -->
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c192" width="192" height="192"></canvas>
+<canvas id="c512" width="512" height="512"></canvas>
+<script>
+function drawIcon(canvas) {
+  const ctx = canvas.getContext('2d');
+  const s = canvas.width;
+  const scale = s / 100;
+
+  // Background
+  ctx.fillStyle = '#e8d5f5';
+  ctx.beginPath();
+  ctx.roundRect(0, 0, s, s, s * 0.2);
+  ctx.fill();
+
+  ctx.save();
+  ctx.translate(s/2, s/2);
+  ctx.scale(scale, scale);
+
+  // Flower petals
+  const petalColors = ['#e8a0c8', '#d4a0e8', '#a0c8e8', '#a0e8c8', '#e8d4a0'];
+  for (let i = 0; i < 5; i++) {
+    ctx.save();
+    ctx.rotate((i * 72 * Math.PI) / 180);
+    ctx.fillStyle = petalColors[i];
+    ctx.globalAlpha = 0.85;
+    ctx.beginPath();
+    ctx.ellipse(0, -15, 8, 14, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // Center
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = '#f0b6d6';
+  ctx.beginPath();
+  ctx.arc(0, 0, 8, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Stem
+  ctx.strokeStyle = '#7ab87a';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(0, 8);
+  ctx.lineTo(0, 32);
+  ctx.stroke();
+
+  // Leaf
+  ctx.fillStyle = '#7ab87a';
+  ctx.globalAlpha = 0.7;
+  ctx.beginPath();
+  ctx.ellipse(-5, 22, 5, 3.5, -0.3, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+drawIcon(document.getElementById('c192'));
+drawIcon(document.getElementById('c512'));
+
+// Auto-download
+['c192', 'c512'].forEach(id => {
+  const canvas = document.getElementById(id);
+  const link = document.createElement('a');
+  link.download = `icon-${canvas.width}.png`;
+  link.href = canvas.toDataURL('image/png');
+  document.body.appendChild(link);
+  // link.click(); // Uncomment to auto-download
+});
+</script>
+<p>Right-click each canvas and "Save image as..." to save the icons, or uncomment the auto-download line.</p>
+</body>
+</html>

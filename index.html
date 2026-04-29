@@ -3,13 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/bloom.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+    <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#e8d5f5" />
     <meta name="description" content="Bloom - Your gentle daily companion" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Apple/iOS specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Bloom" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Prevent phone number detection on iOS -->
+    <meta name="format-detection" content="telephone=no" />
+
     <title>Bloom 🌸</title>
+
+    <style>
+      /* Splash screen while app loads */
+      #splash {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #faf5f0;
+        z-index: 9999;
+        transition: opacity 0.4s ease;
+      }
+      #splash.hide { opacity: 0; pointer-events: none; }
+      #splash svg { width: 80px; height: 80px; animation: pulse 2s ease infinite; }
+      #splash p { margin-top: 12px; font-family: 'Nunito', sans-serif; color: #c9a8e8; font-size: 18px; font-weight: 700; }
+      @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    </style>
   </head>
   <body>
+    <!-- Splash screen -->
+    <div id="splash">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="45" r="12" fill="#f0b6d6"/>
+        <ellipse cx="50" cy="30" rx="8" ry="12" fill="#e8a0c8" opacity="0.8"/>
+        <ellipse cx="62" cy="38" rx="8" ry="12" fill="#d4a0e8" opacity="0.8" transform="rotate(72 62 38)"/>
+        <ellipse cx="57" cy="53" rx="8" ry="12" fill="#a0c8e8" opacity="0.8" transform="rotate(144 57 53)"/>
+        <ellipse cx="43" cy="53" rx="8" ry="12" fill="#a0e8c8" opacity="0.8" transform="rotate(216 43 53)"/>
+        <ellipse cx="38" cy="38" rx="8" ry="12" fill="#e8d4a0" opacity="0.8" transform="rotate(288 38 38)"/>
+        <line x1="50" y1="57" x2="50" y2="85" stroke="#7ab87a" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <p>Bloom</p>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      // Hide splash when app is ready
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const splash = document.getElementById('splash');
+          if (splash) {
+            splash.classList.add('hide');
+            setTimeout(() => splash.remove(), 400);
+          }
+        }, 800);
+      });
+
+      // Register service worker for offline support
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered:', reg.scope))
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
   </body>
 </html>
