@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Moon, Sun, Palette, Download, Heart, LogOut, User, Edit3, Cloud, CloudOff } from 'lucide-react';
 import { getSettings, saveSettings, exportAllData, getActiveProfile, updateProfile, getActiveProfileId } from '../utils/storage';
-import { isFirebaseConfigured, signInWithGoogle, firebaseSignOut } from '../utils/firebase';
+import { isFirebaseConfigured, sendMagicLink, getPendingEmail, firebaseSignOut } from '../utils/firebase';
 import { forceSync, pullFromCloud } from '../utils/sync';
 import './SettingsPage.css';
 
@@ -15,12 +15,27 @@ const COLOR_SCHEMES = [
 
 const AVATARS = ['🌸', '🌊', '🦋', '🌙', '⭐', '🌈', '🔥', '🍀', '🎵', '💜', '🌻', '🐱', '🐶', '🦊', '🐰', '🎨'];
 
-function SettingsPage({ onSettingsChange, onSwitchProfile, profile }) {
+function SettingsPage({ onSettingsChange, onSwitchProfile, profile, firebaseUser }) {
   const [settings, setSettings] = useState(getSettings());
   const [exported, setExported] = useState(false);
   const [editingName, setEditingName] = useState(false);
   const [newName, setNewName] = useState(profile?.name || '');
   const [editingAvatar, setEditingAvatar] = useState(false);
+  const [signInEmail, setSignInEmail] = useState('');
+  const [linkSent, setLinkSent] = useState(false);
+  const [signInError, setSignInError] = useState('');
+
+  const handleSendLink = async () => {
+    if (!signInEmail.trim()) return;
+    setSignInError('');
+    try {
+      await sendMagicLink(signInEmail.trim());
+      setLinkSent(true);
+    } catch (err) {
+      setSignInError('Could not send link. Check the email and try again.');
+      console.error(err);
+    }
+  };
 
   const update = (key, value) => {
     const updated = { ...settings, [key]: value };
@@ -157,18 +172,42 @@ function SettingsPage({ onSettingsChange, onSwitchProfile, profile }) {
           </div>
         ) : (
           <div className="sync-status">
-            <p className="setting-desc">
-              Sign in to sync your data across your phone, iPad, and other devices.
-            </p>
-            <button className="google-sign-in-btn" onClick={async () => {
-              try {
-                await signInWithGoogle();
-              } catch (err) {
-                console.error('Sign in failed:', err);
-              }
-            }}>
-              Sign in with Google
-            </button>
+            {linkSent ? (
+              <div className="link-sent slide-up">
+                <span className="link-sent-emoji">📧</span>
+                <p className="link-sent-title">Check your email!</p>
+                <p className="setting-desc">
+                  We sent a sign-in link to <strong>{signInEmail || getPendingEmail()}</strong>. Tap the link in the email to connect this device.
+                </p>
+                <p className="setting-desc" style={{ marginTop: 6, fontSize: 11 }}>
+                  Check your spam folder if you don't see it. The link works on any device!
+                </p>
+              </div>
+            ) : (
+              <>
+                <p className="setting-desc">
+                  Enter your email to get a sign-in link. No password needed — just tap the link we send you. Use the same email on all your devices to keep everything in sync.
+                </p>
+                <div className="email-input-row">
+                  <input
+                    type="email"
+                    className="input-field"
+                    placeholder="your.email@example.com"
+                    value={signInEmail}
+                    onChange={e => setSignInEmail(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && handleSendLink()}
+                  />
+                  <button
+                    className="send-link-btn"
+                    onClick={handleSendLink}
+                    disabled={!signInEmail.trim()}
+                  >
+                    Send link
+                  </button>
+                </div>
+                {signInError && <p className="sign-in-error">{signInError}</p>}
+              </>
+            )}
           </div>
         )}
       </div>

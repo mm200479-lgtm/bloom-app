@@ -1,10 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
+  sendSignInLinkToEmail,
+  isSignInWithEmailLink,
+  signInWithEmailLink,
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
@@ -16,7 +15,7 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
-// Firebase config — replace with your own from Firebase Console
+// Firebase config — set via environment variables
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || '',
@@ -26,7 +25,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
 };
 
-// Only initialize if config is present
 const hasConfig = firebaseConfig.apiKey && firebaseConfig.projectId;
 
 let app = null;
@@ -47,32 +45,58 @@ export function getFirebaseAuth() {
   return auth;
 }
 
-// --- Auth ---
-export async function signInWithGoogle() {
+// --- Email Magic Link Auth ---
+
+const EMAIL_STORAGE_KEY = 'bloom_signin_email';
+
+export async function sendMagicLink(email) {
+  if (!auth) throw new Error('Firebase not configured');
+
+  const actionCodeSettings = {
+    // This URL must be whitelisted in Firebase Console → Authentication → Settings → Authorized domains
+    url: window.location.origin + window.location.pathname,
+    handleCodeInApp: true,
+  };
+
+  await sendSignInLinkToEmail(auth, email, actionCodeSettings);
+  // Save the email locally so we can complete sign-in when they click the link
+  localStorage.setItem(EMAIL_STORAGE_KEY, email);
+}
+
+export async function completeMagicLinkSignIn() {
   if (!auth) return null;
-  const provider = new GoogleAuthProvider();
+
+  // Check if the current URL is a sign-in link
+  if (!isSignInWithEmailLink(auth, window.location.href)) {
+    return null;
+  }
+
+  let email = localStorage.getItem(EMAIL_STORAGE_KEY);
+
+  // If they opened the link on a different device, ask for email
+  if (!email) {
+    email = window.prompt('Please enter your email to confirm sign-in:');
+    if (!email) return null;
+  }
+
   try {
-    // Try popup first (works on desktop)
-    const result = await signInWithPopup(auth, provider);
+    const result = await signInWithEmailLink(auth, email, window.location.href);
+    localStorage.removeItem(EMAIL_STORAGE_KEY);
+
+    // Clean up the URL (remove the sign-in parameters)
+    const cleanUrl = window.location.origin + window.location.pathname;
+    window.history.replaceState(null, '', cleanUrl);
+
     return result.user;
   } catch (err) {
-    if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
-      // Fall back to redirect (better for mobile/iPad)
-      await signInWithRedirect(auth, provider);
-      return null;
-    }
+    console.error('Magic link sign-in failed:', err);
+    localStorage.removeItem(EMAIL_STORAGE_KEY);
     throw err;
   }
 }
 
-export async function checkRedirectResult() {
-  if (!auth) return null;
-  try {
-    const result = await getRedirectResult(auth);
-    return result?.user || null;
-  } catch {
-    return null;
-  }
+export function getPendingEmail() {
+  return localStorage.getItem(EMAIL_STORAGE_KEY);
 }
 
 export async function firebaseSignOut() {
@@ -89,6 +113,7 @@ export function onAuthChange(callback) {
 }
 
 // --- Firestore sync ---
+
 function userDocRef(userId, profileId) {
   return doc(db, 'users', userId, 'profiles', profileId);
 }
@@ -128,6 +153,7 @@ export function listenToCloud(userId, profileId, callback) {
 }
 
 // --- Sync profiles list ---
+
 function profilesDocRef(userId) {
   return doc(db, 'users', userId, 'meta', 'profiles');
 }

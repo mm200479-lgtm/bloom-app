@@ -136,3 +136,27 @@
 }
 
 .google-sign-in-btn:hover { background: var(--lavender); }
+
+/* Email magic link */
+.email-input-row {
+  display: flex; gap: 8px; margin-top: 10px;
+}
+
+.email-input-row .input-field { flex: 1; min-width: 0; }
+
+.send-link-btn {
+  padding: 10px 16px; border-radius: 10px; background: var(--lavender);
+  color: var(--text-primary); font-size: 13px; font-weight: 700;
+  white-space: nowrap; flex-shrink: 0;
+}
+
+.send-link-btn:disabled { opacity: 0.4; }
+.send-link-btn:hover:not(:disabled) { background: var(--lavender-dark); color: white; }
+
+.sign-in-error {
+  font-size: 12px; color: var(--danger); margin-top: 6px;
+}
+
+.link-sent { text-align: center; padding: 12px 0; }
+.link-sent-emoji { font-size: 36px; display: block; margin-bottom: 8px; }
+.link-sent-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Home, SmilePlus, ListTodo, Wind, MoreHorizontal } from 'lucide-react';
 import { getSettings, getActiveProfile, setActiveProfile } from './utils/storage';
-import { isFirebaseConfigured, onAuthChange, checkRedirectResult } from './utils/firebase';
+import { isFirebaseConfigured, onAuthChange, completeMagicLinkSignIn } from './utils/firebase';
 import { setSyncUserId, pullFromCloud } from './utils/sync';
 import ProfilePage from './pages/ProfilePage';
 import HomePage from './pages/HomePage';
@@ -44,20 +44,18 @@ function App() {
   useEffect(() => {
     if (!isFirebaseConfigured()) return;
 
-    // Check for redirect result (mobile sign-in)
-    checkRedirectResult().then(user => {
+    // Check if returning from a magic link click
+    completeMagicLinkSignIn().then(user => {
       if (user) setFirebaseUser(user);
-    });
+    }).catch(() => {});
 
     const unsub = onAuthChange((user) => {
       setFirebaseUser(user);
       if (user) {
         setSyncUserId(user.uid);
-        // Pull cloud data on sign-in
         setSyncing(true);
         pullFromCloud().then(() => {
           setSyncing(false);
-          // Refresh profile after sync
           setProfile(getActiveProfile());
         });
       } else {
