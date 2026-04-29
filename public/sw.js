@@ -5,10 +5,10 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/manifest.json',
-        '/bloom.svg',
+        '/bloom-app/',
+        '/bloom-app/index.html',
+        '/bloom-app/manifest.json',
+        '/bloom-app/bloom.svg',
       ]);
     })
   );

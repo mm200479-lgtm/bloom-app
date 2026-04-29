@@ -2,7 +2,7 @@
   "name": "Bloom",
   "short_name": "Bloom",
   "description": "Your gentle daily companion 🌸",
-  "start_url": "/",
+  "start_url": "/bloom-app/",
   "display": "standalone",
   "background_color": "#faf5f0",
   "theme_color": "#e8d5f5",
