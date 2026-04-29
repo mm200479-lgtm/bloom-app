@@ -1,0 +1,45 @@
+.emotion-page { padding: 20px 16px; }
+
+.emotion-saved { text-align: center; padding: 40px 20px; }
+.emotion-saved .saved-emoji { font-size: 48px; display: block; margin-bottom: 12px; animation: celebrate 0.6s ease; }
+.emotion-saved h2 { font-size: 20px; margin-bottom: 8px; }
+.emotion-saved p { font-size: 14px; color: var(--text-secondary); max-width: 280px; margin: 0 auto; }
+
+.wheel-prompt { font-size: 15px; font-weight: 600; color: var(--text-secondary); margin-bottom: 14px; text-align: center; }
+
+.wheel-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+}
+
+.wheel-segment {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; padding: 20px 12px; border-radius: 16px;
+}
+
+.wheel-segment:hover { transform: scale(1.03); box-shadow: 0 4px 12px var(--shadow-md); }
+
+.segment-emoji { font-size: 32px; }
+.segment-label { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+
+.selected-parent {
+  text-align: center; padding: 14px; border-radius: 12px; font-size: 16px;
+  font-weight: 700; margin-bottom: 14px;
+}
+
+.deeper-prompt { font-size: 15px; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; }
+
+.deeper-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+
+.deeper-btn {
+  padding: 8px 14px; border-radius: 20px; background: var(--bg-secondary);
+  font-size: 13px; font-weight: 600; color: var(--text-secondary);
+}
+
+.deeper-btn.active { color: var(--text-primary); box-shadow: 0 2px 8px var(--shadow-md); }
+.deeper-btn:hover { background: var(--lavender); }
+
+.emotion-info {
+  margin-top: 20px; padding: 14px; background: var(--bg-secondary); border-radius: 12px;
+}
+
+.emotion-info p { font-size: 12px; color: var(--text-light); line-height: 1.5; }

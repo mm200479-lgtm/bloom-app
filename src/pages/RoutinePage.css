@@ -1,0 +1,71 @@
+.routine-page { padding: 20px 16px; }
+
+.routine-section { margin-bottom: 16px; }
+
+.routine-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+
+.routine-title-row { display: flex; align-items: center; gap: 8px; }
+.routine-title-row h3 { font-size: 16px; font-weight: 700; }
+.routine-progress { font-size: 14px; font-weight: 700; color: var(--lavender-dark); }
+
+.progress-bar {
+  height: 6px; background: var(--bg-secondary); border-radius: 3px; margin-bottom: 12px; overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--lavender-dark), var(--sage-dark));
+  border-radius: 3px; transition: width 0.4s ease;
+}
+
+.routine-complete {
+  text-align: center; font-size: 13px; font-weight: 700; color: var(--sage-dark);
+  padding: 8px; margin-bottom: 8px; animation: celebrate 0.5s ease;
+}
+
+.routine-items { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+
+.routine-item {
+  display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+  background: var(--bg-secondary); border-radius: 10px;
+}
+
+.routine-item.done { opacity: 0.6; }
+
+.routine-check {
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--lavender-dark);
+  background: transparent; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--white); padding: 0;
+}
+
+.routine-check.checked { background: var(--sage-dark); border-color: var(--sage-dark); }
+
+.routine-text { flex: 1; font-size: 13px; font-weight: 600; }
+.routine-text.completed { text-decoration: line-through; color: var(--text-light); }
+
+.routine-remove {
+  background: transparent; color: var(--text-light); padding: 2px; flex-shrink: 0;
+}
+
+.add-routine-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.add-routine-row .input-field { flex: 1; min-width: 0; padding: 8px 12px; font-size: 13px; }
+
+.add-confirm {
+  padding: 8px 14px; border-radius: 8px; background: var(--lavender);
+  font-size: 12px; font-weight: 700; color: var(--text-primary);
+}
+
+.add-cancel {
+  padding: 8px 14px; border-radius: 8px; background: transparent;
+  font-size: 12px; font-weight: 600; color: var(--text-light);
+}
+
+.add-step-btn {
+  display: flex; align-items: center; gap: 4px; background: transparent;
+  color: var(--lavender-dark); font-size: 13px; font-weight: 600; padding: 4px 0;
+}
+
+.routine-tip {
+  text-align: center; font-size: 12px; color: var(--text-light); padding: 12px;
+}

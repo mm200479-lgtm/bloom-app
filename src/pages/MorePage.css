@@ -1,0 +1,51 @@
+.more-page {
+  padding: 20px 16px;
+}
+
+.more-section {
+  margin-bottom: 20px;
+}
+
+.more-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.more-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+.more-item:hover {
+  background: var(--lavender);
+}
+
+.more-emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+  width: 36px;
+  text-align: center;
+}
+
+.more-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.more-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.more-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}

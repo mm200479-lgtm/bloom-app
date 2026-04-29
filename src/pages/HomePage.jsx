@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Flower2, Heart, Flame, Star, Sun, Moon, CloudRain } from 'lucide-react';
-import { getStreaks, getMoods } from '../utils/storage';
+import { Flower2, Heart, Flame, Sun, Moon, Star } from 'lucide-react';
+import { getStreaks, getMoods, getGarden, getWins } from '../utils/storage';
 import './HomePage.css';
 
 const GREETINGS = {
   morning: { text: 'Good morning', icon: Sun, note: 'A new day, a fresh start 🌅' },
-  afternoon: { text: 'Good afternoon', icon: Sun, note: 'You\'re doing great today 🌤️' },
+  afternoon: { text: 'Good afternoon', icon: Sun, note: "You're doing great today 🌤️" },
   evening: { text: 'Good evening', icon: Moon, note: 'Time to wind down gently 🌙' },
   night: { text: 'Hey there, night owl', icon: Star, note: 'Rest is important too 💜' },
 };
@@ -37,27 +37,36 @@ const AFFIRMATIONS = [
 ];
 
 function HomePage({ onNavigate }) {
-  const [streaks, setStreaks] = useState(getStreaks());
+  const [streaks] = useState(getStreaks());
   const [affirmation, setAffirmation] = useState('');
+  const garden = getGarden();
+  const wins = getWins();
   const timeOfDay = getTimeOfDay();
   const greeting = GREETINGS[timeOfDay];
   const GreetingIcon = greeting.icon;
 
   useEffect(() => {
-    const idx = Math.floor(Math.random() * AFFIRMATIONS.length);
-    setAffirmation(AFFIRMATIONS[idx]);
+    setAffirmation(AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)]);
   }, []);
 
-  const todaysMoods = getMoods().filter(m => {
-    const moodDate = new Date(m.timestamp).toDateString();
-    return moodDate === new Date().toDateString();
-  });
+  const todaysMoods = getMoods().filter(m =>
+    new Date(m.timestamp).toDateString() === new Date().toDateString()
+  );
 
   const quickActions = [
     { id: 'mood', label: 'Check in', emoji: '💜', color: 'var(--lavender)' },
     { id: 'grounding', label: 'Calm down', emoji: '🌊', color: 'var(--sky)' },
     { id: 'tasks', label: 'My tasks', emoji: '✨', color: 'var(--sage)' },
     { id: 'journal', label: 'Write', emoji: '📝', color: 'var(--blush)' },
+  ];
+
+  const moreTools = [
+    { id: 'coping', label: 'Coping Cards', emoji: '💜' },
+    { id: 'sounds', label: 'Sounds', emoji: '🎵' },
+    { id: 'pomodoro', label: 'Focus Timer', emoji: '🍅' },
+    { id: 'activity', label: 'Activity Ideas', emoji: '💡' },
+    { id: 'routines', label: 'Routines', emoji: '⏰' },
+    { id: 'wins', label: 'Win Jar', emoji: '🏆' },
   ];
 
   return (
@@ -81,15 +90,32 @@ function HomePage({ onNavigate }) {
         <p className="affirmation-text">{affirmation}</p>
       </section>
 
-      {streaks.currentStreak > 0 && (
-        <section className="streak-card fade-in" aria-label="Check-in streak">
-          <Flame size={20} color="#e8a060" />
-          <div>
-            <span className="streak-count">{streaks.currentStreak} day streak!</span>
-            <span className="streak-sub">You've checked in {streaks.totalCheckIns} times total</span>
+      <div className="stats-row fade-in">
+        {streaks.currentStreak > 0 && (
+          <div className="stat-chip">
+            <Flame size={14} color="#e8a060" />
+            <span>{streaks.currentStreak} day streak</span>
           </div>
-        </section>
-      )}
+        )}
+        {garden.totalPetals > 0 && (
+          <div className="stat-chip">
+            <span>🌸</span>
+            <span>{garden.petals} petals</span>
+          </div>
+        )}
+        {garden.flowers.length > 0 && (
+          <div className="stat-chip">
+            <span>🌱</span>
+            <span>{garden.flowers.length} plants</span>
+          </div>
+        )}
+        {wins.length > 0 && (
+          <div className="stat-chip">
+            <span>⭐</span>
+            <span>{wins.length} wins</span>
+          </div>
+        )}
+      </div>
 
       <section className="quick-actions" aria-label="Quick actions">
         <h3 className="section-title">What do you need right now?</h3>
@@ -104,6 +130,21 @@ function HomePage({ onNavigate }) {
             >
               <span className="action-emoji">{action.emoji}</span>
               <span className="action-label">{action.label}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="more-tools" aria-label="More tools">
+        <div className="tools-scroll">
+          {moreTools.map(tool => (
+            <button
+              key={tool.id}
+              className="tool-chip"
+              onClick={() => onNavigate(tool.id)}
+            >
+              <span>{tool.emoji}</span>
+              <span>{tool.label}</span>
             </button>
           ))}
         </div>

@@ -1,0 +1,61 @@
+.energy-page { padding: 20px 16px; }
+
+.energy-saved {
+  text-align: center; padding: 24px; font-size: 15px; font-weight: 700;
+  color: var(--sage-dark);
+}
+
+.energy-saved span { font-size: 36px; display: block; margin-bottom: 8px; }
+
+.energy-prompt {
+  font-size: 15px; font-weight: 600; color: var(--text-secondary);
+  margin-bottom: 14px; text-align: center;
+}
+
+.energy-levels {
+  display: flex; gap: 6px; justify-content: center; margin-bottom: 16px;
+}
+
+.energy-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 12px 10px; border-radius: 12px; background: var(--bg-secondary);
+  border: 2px solid transparent; min-width: 60px;
+}
+
+.energy-btn.active { transform: scale(1.08); box-shadow: 0 4px 12px var(--shadow-md); }
+
+.energy-emoji { font-size: 22px; }
+.energy-label { font-size: 10px; font-weight: 700; color: var(--text-secondary); }
+.energy-btn.active .energy-label { color: var(--text-primary); }
+
+.energy-note { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+
+.energy-avg {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+
+.avg-number { display: block; font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.avg-label { font-size: 12px; color: var(--text-secondary); }
+
+.energy-today { margin-bottom: 16px; }
+
+.energy-timeline { display: flex; flex-direction: column; gap: 8px; }
+
+.timeline-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px;
+  background: var(--bg-secondary); border-radius: 10px;
+}
+
+.timeline-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+}
+
+.timeline-content { flex: 1; }
+.timeline-level { font-size: 13px; font-weight: 700; display: block; }
+.timeline-note { font-size: 12px; color: var(--text-secondary); }
+.timeline-time { font-size: 11px; color: var(--text-light); flex-shrink: 0; }
+
+.energy-tip {
+  font-size: 12px; color: var(--text-light); text-align: center;
+  padding: 12px; line-height: 1.5;
+}

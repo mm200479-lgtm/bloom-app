@@ -1,0 +1,47 @@
+.settings-page { padding: 20px 16px; }
+
+.setting-section { margin-bottom: 12px; }
+
+.setting-header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.setting-header h3 { font-size: 15px; font-weight: 700; }
+
+.setting-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+.theme-toggle { display: flex; gap: 8px; }
+
+.theme-btn {
+  display: flex; align-items: center; gap: 6px; padding: 10px 16px;
+  border-radius: 10px; background: var(--bg-secondary); font-size: 13px;
+  font-weight: 600; color: var(--text-secondary); flex: 1; justify-content: center;
+}
+
+.theme-btn.active { background: var(--lavender); color: var(--text-primary); }
+
+.color-grid { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.color-option {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px; border-radius: 10px; background: transparent;
+  border: 2px solid transparent;
+}
+
+.color-option.active { border-color: var(--lavender-dark); background: var(--bg-secondary); }
+
+.color-preview {
+  display: flex; gap: 2px; border-radius: 8px; overflow: hidden;
+}
+
+.color-preview span { width: 20px; height: 20px; display: block; }
+.color-label { font-size: 10px; font-weight: 600; color: var(--text-secondary); }
+
+.export-btn {
+  display: flex; align-items: center; gap: 6px; padding: 10px 16px;
+  border-radius: 10px; background: var(--sage); color: var(--text-primary);
+  font-size: 13px; font-weight: 700; margin-top: 10px;
+}
+
+.version { font-size: 11px; color: var(--text-light); margin-top: 10px; }
