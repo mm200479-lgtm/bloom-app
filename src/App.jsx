@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Home, SmilePlus, ListTodo, Wind, MoreHorizontal } from 'lucide-react';
 import { getSettings, getActiveProfile, setActiveProfile } from './utils/storage';
+import { isFirebaseConfigured, onAuthChange, checkRedirectResult } from './utils/firebase';
+import { setSyncUserId, pullFromCloud } from './utils/sync';
 import ProfilePage from './pages/ProfilePage';
 import HomePage from './pages/HomePage';
 import MoodPage from './pages/MoodPage';
@@ -35,6 +37,36 @@ function App() {
   const [profile, setProfile] = useState(getActiveProfile());
   const [activeTab, setActiveTab] = useState('home');
   const [settings, setSettings] = useState({ theme: 'light', colorScheme: 'lavender' });
+  const [firebaseUser, setFirebaseUser] = useState(null);
+  const [syncing, setSyncing] = useState(false);
+
+  // Firebase auth listener
+  useEffect(() => {
+    if (!isFirebaseConfigured()) return;
+
+    // Check for redirect result (mobile sign-in)
+    checkRedirectResult().then(user => {
+      if (user) setFirebaseUser(user);
+    });
+
+    const unsub = onAuthChange((user) => {
+      setFirebaseUser(user);
+      if (user) {
+        setSyncUserId(user.uid);
+        // Pull cloud data on sign-in
+        setSyncing(true);
+        pullFromCloud().then(() => {
+          setSyncing(false);
+          // Refresh profile after sync
+          setProfile(getActiveProfile());
+        });
+      } else {
+        setSyncUserId(null);
+      }
+    });
+
+    return unsub;
+  }, []);
 
   useEffect(() => {
     if (profile) {
@@ -71,16 +103,21 @@ function App() {
   const handleProfileSelected = (p) => {
     setProfile(p);
     setSettings(getSettings());
+    // Sync this profile's data if signed in
+    if (firebaseUser) {
+      setSyncing(true);
+      pullFromCloud().then(() => setSyncing(false));
+    }
   };
 
   // Show profile picker if no active profile
   if (!profile) {
-    return <ProfilePage onProfileSelected={handleProfileSelected} />;
+    return <ProfilePage onProfileSelected={handleProfileSelected} firebaseUser={firebaseUser} />;
   }
 
   const renderPage = () => {
     switch (activeTab) {
-      case 'home': return <HomePage onNavigate={handleNavigate} profile={profile} />;
+      case 'home': return <HomePage onNavigate={handleNavigate} profile={profile} syncing={syncing} firebaseUser={firebaseUser} />;
       case 'mood': return <MoodPage />;
       case 'tasks': return <TasksPage />;
       case 'journal': return <JournalPage />;
@@ -97,7 +134,7 @@ function App() {
       case 'energy': return <EnergyPage />;
       case 'wins': return <WinJarPage />;
       case 'garden': return <GardenPage />;
-      case 'settings': return <SettingsPage onSettingsChange={handleSettingsChange} onSwitchProfile={handleSwitchProfile} profile={profile} />;
+      case 'settings': return <SettingsPage onSettingsChange={handleSettingsChange} onSwitchProfile={handleSwitchProfile} profile={profile} firebaseUser={firebaseUser} />;
       case 'more': return <MorePage onNavigate={handleNavigate} profile={profile} />;
       default: return <HomePage onNavigate={handleNavigate} profile={profile} />;
     }
@@ -106,6 +143,9 @@ function App() {
   return (
     <>
       <main className="app-content">
+        {syncing && (
+          <div className="sync-banner">☁️ Syncing your data...</div>
+        )}
         {renderPage()}
       </main>
       <nav className="bottom-nav" role="navigation" aria-label="Main navigation">

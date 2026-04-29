@@ -5,6 +5,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.sync-banner {
+  text-align: center; padding: 6px; background: var(--sky);
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  animation: pulse 1.5s ease infinite;
+}
+
 /* Bottom Navigation */
 .bottom-nav {
   position: fixed;

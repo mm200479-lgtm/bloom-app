@@ -11,6 +11,7 @@
 
 .setting-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
+/* Theme */
 .theme-toggle { display: flex; gap: 8px; }
 
 .theme-btn {
@@ -21,6 +22,7 @@
 
 .theme-btn.active { background: var(--lavender); color: var(--text-primary); }
 
+/* Colors */
 .color-grid { display: flex; gap: 8px; flex-wrap: wrap; }
 
 .color-option {
@@ -31,13 +33,11 @@
 
 .color-option.active { border-color: var(--lavender-dark); background: var(--bg-secondary); }
 
-.color-preview {
-  display: flex; gap: 2px; border-radius: 8px; overflow: hidden;
-}
-
+.color-preview { display: flex; gap: 2px; border-radius: 8px; overflow: hidden; }
 .color-preview span { width: 20px; height: 20px; display: block; }
 .color-label { font-size: 10px; font-weight: 600; color: var(--text-secondary); }
 
+/* Export */
 .export-btn {
   display: flex; align-items: center; gap: 6px; padding: 10px 16px;
   border-radius: 10px; background: var(--sage); color: var(--text-primary);
@@ -48,65 +48,10 @@
 
 /* Profile section */
 .profile-info {
-  display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px;
-}
-
-.profile-avatar-display {
-  display: flex; align-items: center; gap: 8px;
-}
-
-.current-avatar { font-size: 40px; }
-
-.edit-avatar-btn {
-  width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary);
-  color: var(--text-light); display: flex; align-items: center; justify-content: center;
-}
-
-.avatar-edit-grid {
-  display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px;
-}
-
-.avatar-option {
-  font-size: 20px; padding: 6px 2px; border-radius: 8px; background: var(--bg-secondary);
-  border: 2px solid transparent;
-}
-
-.avatar-option.active { border-color: var(--lavender-dark); background: var(--lavender); }
-
-.name-display {
-  display: flex; align-items: center; gap: 8px;
-}
-
-.current-name { font-size: 18px; font-weight: 700; color: var(--text-primary); }
-
-.edit-name-btn {
-  display: flex; align-items: center; gap: 4px; background: transparent;
-  color: var(--text-light); font-size: 12px; font-weight: 600;
-}
-
-.name-edit-row { display: flex; gap: 6px; align-items: center; }
-.name-edit-row .input-field { flex: 1; font-size: 16px; font-weight: 600; }
-
-.name-save-btn {
-  padding: 8px 14px; border-radius: 8px; background: var(--sage);
-  font-size: 13px; font-weight: 700; color: var(--text-primary);
-}
-
-.switch-profile-btn {
-  display: flex; align-items: center; gap: 6px; padding: 10px 14px;
-  border-radius: 10px; background: var(--bg-secondary); color: var(--text-secondary);
-  font-size: 13px; font-weight: 600; width: 100%;
-}
-
-.switch-profile-btn:hover { background: var(--lavender); }
-
-/* Profile section */
-.profile-info {
   display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 12px;
 }
 
 .profile-avatar-display { position: relative; }
-
 .current-avatar { font-size: 48px; display: block; }
 
 .edit-avatar-btn {
@@ -154,3 +99,40 @@
 }
 
 .switch-profile-btn:hover { background: var(--lavender); }
+
+/* Cloud sync */
+.sync-status { margin-top: 4px; }
+
+.sync-connected {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  font-size: 13px; font-weight: 600; color: var(--text-primary);
+}
+
+.sync-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+
+.sync-dot.connected { background: var(--success); }
+
+.sync-actions { display: flex; gap: 8px; margin-top: 10px; }
+
+.sync-now-btn {
+  display: flex; align-items: center; gap: 4px; padding: 8px 14px;
+  border-radius: 8px; background: var(--sage); color: var(--text-primary);
+  font-size: 12px; font-weight: 700;
+}
+
+.sign-out-btn {
+  display: flex; align-items: center; gap: 4px; padding: 8px 14px;
+  border-radius: 8px; background: var(--bg-secondary); color: var(--text-secondary);
+  font-size: 12px; font-weight: 600;
+}
+
+.google-sign-in-btn {
+  width: 100%; padding: 12px; border-radius: 10px;
+  background: var(--bg-secondary); border: 1px solid var(--border-medium);
+  color: var(--text-primary); font-size: 14px; font-weight: 700;
+  margin-top: 10px;
+}
+
+.google-sign-in-btn:hover { background: var(--lavender); }

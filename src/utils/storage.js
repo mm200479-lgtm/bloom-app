@@ -98,6 +98,10 @@ export function getData(key) {
 export function setData(key, value) {
   try {
     localStorage.setItem(profileKey(key), JSON.stringify(value));
+    // Trigger cloud sync if available
+    try {
+      import('./sync.js').then(({ scheduleSyncToCloud }) => scheduleSyncToCloud());
+    } catch {}
     return true;
   } catch {
     return false;

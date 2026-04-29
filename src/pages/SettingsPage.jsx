@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Moon, Sun, Palette, Download, Heart, LogOut, User, Edit3 } from 'lucide-react';
+import { Moon, Sun, Palette, Download, Heart, LogOut, User, Edit3, Cloud, CloudOff } from 'lucide-react';
 import { getSettings, saveSettings, exportAllData, getActiveProfile, updateProfile, getActiveProfileId } from '../utils/storage';
+import { isFirebaseConfigured, signInWithGoogle, firebaseSignOut } from '../utils/firebase';
+import { forceSync, pullFromCloud } from '../utils/sync';
 import './SettingsPage.css';
 
 const COLOR_SCHEMES = [
@@ -113,6 +115,62 @@ function SettingsPage({ onSettingsChange, onSwitchProfile, profile }) {
         <button className="switch-profile-btn" onClick={onSwitchProfile}>
           <LogOut size={14} /> Switch person
         </button>
+      </div>
+
+      {/* Cloud Sync */}
+      <div className="setting-section card">
+        <div className="setting-header">
+          {firebaseUser ? <Cloud size={18} color="var(--sage-dark)" /> : <CloudOff size={18} />}
+          <h3>Cloud Sync</h3>
+        </div>
+        {!isFirebaseConfigured() ? (
+          <div className="sync-status">
+            <p className="setting-desc">
+              Cloud sync is not configured yet. Data is stored locally on this device only.
+            </p>
+            <p className="setting-desc" style={{ marginTop: 6, fontSize: 11 }}>
+              To enable sync across devices, set up Firebase and add your config to the environment variables. See the README for instructions.
+            </p>
+          </div>
+        ) : firebaseUser ? (
+          <div className="sync-status">
+            <div className="sync-connected">
+              <span className="sync-dot connected" />
+              <span>Signed in as {firebaseUser.email}</span>
+            </div>
+            <p className="setting-desc">Your data syncs automatically across all devices where you sign in.</p>
+            <div className="sync-actions">
+              <button className="sync-now-btn" onClick={async () => {
+                await forceSync();
+                await pullFromCloud();
+                alert('Synced! ✅');
+              }}>
+                <Cloud size={14} /> Sync now
+              </button>
+              <button className="sign-out-btn" onClick={async () => {
+                await firebaseSignOut();
+                window.location.reload();
+              }}>
+                <LogOut size={14} /> Sign out
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="sync-status">
+            <p className="setting-desc">
+              Sign in to sync your data across your phone, iPad, and other devices.
+            </p>
+            <button className="google-sign-in-btn" onClick={async () => {
+              try {
+                await signInWithGoogle();
+              } catch (err) {
+                console.error('Sign in failed:', err);
+              }
+            }}>
+              Sign in with Google
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Theme */}
