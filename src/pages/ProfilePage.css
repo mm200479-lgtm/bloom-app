@@ -1,0 +1,126 @@
+.profile-page {
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 40px 24px; text-align: center;
+}
+
+.profile-header { margin-bottom: 32px; }
+
+.profile-logo {
+  font-size: 56px; display: block; margin-bottom: 8px;
+  animation: float 3s ease infinite;
+}
+
+.profile-header h1 {
+  font-size: 32px; font-weight: 700; color: var(--lavender-dark); margin-bottom: 4px;
+}
+
+.profile-header p {
+  font-size: 16px; color: var(--text-secondary);
+}
+
+/* Profile list */
+.profile-list {
+  width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 10px;
+}
+
+.profile-card-wrapper {
+  display: flex; align-items: center; gap: 8px;
+}
+
+.profile-card {
+  flex: 1; display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px; background: linear-gradient(135deg, var(--lavender), var(--blush));
+  border-radius: 16px; text-align: left;
+}
+
+.profile-card:hover {
+  transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow-md);
+}
+
+.profile-avatar { font-size: 32px; }
+
+.profile-name {
+  font-size: 18px; font-weight: 700; color: var(--text-primary);
+}
+
+.profile-delete {
+  width: 36px; height: 36px; border-radius: 10px; background: var(--bg-secondary);
+  color: var(--text-light); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-delete:hover { color: var(--danger); background: rgba(232, 138, 138, 0.1); }
+
+.delete-confirm {
+  display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-secondary);
+}
+
+.confirm-yes {
+  padding: 4px 8px; border-radius: 6px; background: var(--danger);
+  color: white; font-size: 11px; font-weight: 700;
+}
+
+.confirm-no {
+  padding: 4px 8px; border-radius: 6px; background: var(--bg-secondary);
+  color: var(--text-secondary); font-size: 11px; font-weight: 600;
+}
+
+.add-profile-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px; border-radius: 14px; background: var(--bg-secondary);
+  color: var(--text-secondary); font-size: 14px; font-weight: 600;
+  border: 2px dashed var(--border-medium);
+}
+
+.add-profile-btn:hover { background: var(--lavender); border-color: var(--lavender-dark); }
+
+/* Create profile */
+.create-profile {
+  width: 100%; max-width: 320px;
+}
+
+.create-profile h2 {
+  font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);
+}
+
+.create-label {
+  display: block; font-size: 14px; font-weight: 600; color: var(--text-secondary);
+  margin-bottom: 8px; text-align: left;
+}
+
+.create-input {
+  width: 100%; padding: 14px 16px; border-radius: 14px; background: var(--bg-secondary);
+  font-size: 16px; color: var(--text-primary); margin-bottom: 20px; text-align: center;
+  font-weight: 600;
+}
+
+.create-input::placeholder { color: var(--text-light); font-weight: 400; }
+
+.avatar-grid {
+  display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-bottom: 24px;
+}
+
+.avatar-btn {
+  font-size: 24px; padding: 6px; border-radius: 10px; background: var(--bg-secondary);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.avatar-btn.active {
+  background: var(--lavender); box-shadow: 0 2px 8px var(--shadow-md);
+  transform: scale(1.1);
+}
+
+.create-btn {
+  width: 100%; padding: 14px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  color: var(--text-primary); font-size: 16px; font-weight: 700;
+}
+
+.create-btn:disabled { opacity: 0.4; }
+.create-btn:hover:not(:disabled) { box-shadow: 0 4px 16px var(--shadow-md); }
+
+.cancel-create {
+  background: transparent; color: var(--text-light); font-size: 14px;
+  font-weight: 600; padding: 12px; width: 100%;
+}

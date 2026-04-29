@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Home, SmilePlus, ListTodo, BookHeart, Shield, Wind, Sparkles, Settings, MoreHorizontal } from 'lucide-react';
-import { getSettings } from './utils/storage';
+import { Home, SmilePlus, ListTodo, Wind, MoreHorizontal } from 'lucide-react';
+import { getSettings, getActiveProfile, setActiveProfile } from './utils/storage';
+import ProfilePage from './pages/ProfilePage';
 import HomePage from './pages/HomePage';
 import MoodPage from './pages/MoodPage';
 import TasksPage from './pages/TasksPage';
@@ -31,8 +32,15 @@ const TABS = [
 ];
 
 function App() {
+  const [profile, setProfile] = useState(getActiveProfile());
   const [activeTab, setActiveTab] = useState('home');
-  const [settings, setSettings] = useState(getSettings());
+  const [settings, setSettings] = useState({ theme: 'light', colorScheme: 'lavender' });
+
+  useEffect(() => {
+    if (profile) {
+      setSettings(getSettings());
+    }
+  }, [profile]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -51,13 +59,29 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  const handleProfileSelected = (p) => {
+    setProfile(p);
+    setActiveTab('home');
+    setSettings(getSettings());
+  };
+
+  const handleSwitchProfile = () => {
+    setProfile(null);
+    setActiveTab('home');
+  };
+
   const handleSettingsChange = (newSettings) => {
     setSettings(newSettings);
   };
 
+  // Show profile picker if no active profile
+  if (!profile) {
+    return <ProfilePage onProfileSelected={handleProfileSelected} />;
+  }
+
   const renderPage = () => {
     switch (activeTab) {
-      case 'home': return <HomePage onNavigate={handleNavigate} />;
+      case 'home': return <HomePage onNavigate={handleNavigate} profile={profile} />;
       case 'mood': return <MoodPage />;
       case 'tasks': return <TasksPage />;
       case 'journal': return <JournalPage />;
@@ -74,9 +98,9 @@ function App() {
       case 'energy': return <EnergyPage />;
       case 'wins': return <WinJarPage />;
       case 'garden': return <GardenPage />;
-      case 'settings': return <SettingsPage onSettingsChange={handleSettingsChange} />;
-      case 'more': return <MorePage onNavigate={handleNavigate} />;
-      default: return <HomePage onNavigate={handleNavigate} />;
+      case 'settings': return <SettingsPage onSettingsChange={handleSettingsChange} onSwitchProfile={handleSwitchProfile} profile={profile} />;
+      case 'more': return <MorePage onNavigate={handleNavigate} profile={profile} />;
+      default: return <HomePage onNavigate={handleNavigate} profile={profile} />;
     }
   };
 

@@ -3,6 +3,7 @@
 .home-header { margin-bottom: 20px; }
 
 .greeting-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.header-avatar { font-size: 28px; }
 .app-title { font-size: 24px; font-weight: 700; color: var(--lavender-dark); }
 
 .greeting-card {

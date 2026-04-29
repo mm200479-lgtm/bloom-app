@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Flower2, Heart, Flame, Sun, Moon, Star } from 'lucide-react';
+import { Heart, Flame, Sun, Moon, Star } from 'lucide-react';
 import { getStreaks, getMoods, getGarden, getWins } from '../utils/storage';
 import './HomePage.css';
 
-const GREETINGS = {
-  morning: { text: 'Good morning', icon: Sun, note: 'A new day, a fresh start 🌅' },
-  afternoon: { text: 'Good afternoon', icon: Sun, note: "You're doing great today 🌤️" },
-  evening: { text: 'Good evening', icon: Moon, note: 'Time to wind down gently 🌙' },
-  night: { text: 'Hey there, night owl', icon: Star, note: 'Rest is important too 💜' },
-};
+function greetings(name) {
+  const n = name ? `, ${name}` : '';
+  return {
+    morning: { text: `Good morning${n}`, icon: Sun, note: 'A new day, a fresh start 🌅' },
+    afternoon: { text: `Good afternoon${n}`, icon: Sun, note: "You're doing great today 🌤️" },
+    evening: { text: `Good evening${n}`, icon: Moon, note: 'Time to wind down gently 🌙' },
+    night: { text: `Hey there${n}`, icon: Star, note: 'Rest is important too 💜' },
+  };
+}
 
 function getTimeOfDay() {
   const hour = new Date().getHours();
@@ -36,12 +39,13 @@ const AFFIRMATIONS = [
   "Healing isn't linear, and that's okay.",
 ];
 
-function HomePage({ onNavigate }) {
+function HomePage({ onNavigate, profile }) {
   const [streaks] = useState(getStreaks());
   const [affirmation, setAffirmation] = useState('');
   const garden = getGarden();
   const wins = getWins();
   const timeOfDay = getTimeOfDay();
+  const GREETINGS = greetings(profile?.name);
   const greeting = GREETINGS[timeOfDay];
   const GreetingIcon = greeting.icon;
 
@@ -73,7 +77,7 @@ function HomePage({ onNavigate }) {
     <div className="home-page">
       <header className="home-header fade-in">
         <div className="greeting-row">
-          <Flower2 size={28} color="var(--lavender-dark)" />
+          <span className="header-avatar">{profile?.avatar || '🌸'}</span>
           <h1 className="app-title">Bloom</h1>
         </div>
         <div className="greeting-card">

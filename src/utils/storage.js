@@ -1,22 +1,93 @@
 // All data stays on device - localStorage only
+// Multi-profile support: each user gets their own data namespace
+
 const STORAGE_KEYS = {
-  MOODS: 'bloom_moods',
-  TASKS: 'bloom_tasks',
-  JOURNAL: 'bloom_journal',
-  ROUTINES: 'bloom_routines',
-  SAFETY_PLAN: 'bloom_safety_plan',
-  SETTINGS: 'bloom_settings',
-  STREAKS: 'bloom_streaks',
-  TRIGGERS: 'bloom_triggers',
-  WINS: 'bloom_wins',
-  ENERGY: 'bloom_energy',
-  GARDEN: 'bloom_garden',
-  PHOTOS: 'bloom_photos',
+  MOODS: 'moods',
+  TASKS: 'tasks',
+  JOURNAL: 'journal',
+  ROUTINES: 'routines',
+  SAFETY_PLAN: 'safety_plan',
+  SETTINGS: 'settings',
+  STREAKS: 'streaks',
+  TRIGGERS: 'triggers',
+  WINS: 'wins',
+  ENERGY: 'energy',
+  GARDEN: 'garden',
+  PHOTOS: 'photos',
 };
+
+// --- Profile Management ---
+const PROFILES_KEY = 'bloom_profiles';
+const ACTIVE_PROFILE_KEY = 'bloom_active_profile';
+
+export function getProfiles() {
+  try {
+    const data = localStorage.getItem(PROFILES_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveProfiles(profiles) {
+  localStorage.setItem(PROFILES_KEY, JSON.stringify(profiles));
+}
+
+export function createProfile(name, avatar) {
+  const profiles = getProfiles();
+  const id = 'profile_' + Date.now();
+  const profile = { id, name: name.trim(), avatar: avatar || '🌸', createdAt: new Date().toISOString() };
+  profiles.push(profile);
+  saveProfiles(profiles);
+  setActiveProfile(id);
+  return profile;
+}
+
+export function deleteProfile(id) {
+  const profiles = getProfiles().filter(p => p.id !== id);
+  saveProfiles(profiles);
+  // Clean up all data for this profile
+  Object.values(STORAGE_KEYS).forEach(key => {
+    localStorage.removeItem(`${id}_${key}`);
+  });
+  if (getActiveProfileId() === id) {
+    localStorage.removeItem(ACTIVE_PROFILE_KEY);
+  }
+  return profiles;
+}
+
+export function updateProfile(id, updates) {
+  const profiles = getProfiles().map(p =>
+    p.id === id ? { ...p, ...updates } : p
+  );
+  saveProfiles(profiles);
+  return profiles;
+}
+
+export function getActiveProfileId() {
+  return localStorage.getItem(ACTIVE_PROFILE_KEY);
+}
+
+export function getActiveProfile() {
+  const id = getActiveProfileId();
+  if (!id) return null;
+  return getProfiles().find(p => p.id === id) || null;
+}
+
+export function setActiveProfile(id) {
+  localStorage.setItem(ACTIVE_PROFILE_KEY, id);
+}
+
+// --- Namespaced data access ---
+function profileKey(key) {
+  const profileId = getActiveProfileId();
+  if (!profileId) return `bloom_${key}`;
+  return `${profileId}_${key}`;
+}
 
 export function getData(key) {
   try {
-    const data = localStorage.getItem(key);
+    const data = localStorage.getItem(profileKey(key));
     return data ? JSON.parse(data) : null;
   } catch {
     return null;
@@ -25,7 +96,7 @@ export function getData(key) {
 
 export function setData(key, value) {
   try {
-    localStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(profileKey(key), JSON.stringify(value));
     return true;
   } catch {
     return false;
@@ -181,7 +252,7 @@ export function addEnergyLog(level, note) {
   return logs;
 }
 
-// --- Garden (reward system) ---
+// --- Garden ---
 export function getGarden() {
   return getData(STORAGE_KEYS.GARDEN) || {
     petals: 0,
@@ -237,8 +308,6 @@ export function getSettings() {
   return getData(STORAGE_KEYS.SETTINGS) || {
     theme: 'light',
     colorScheme: 'lavender',
-    reminderTime: null,
-    name: '',
   };
 }
 
@@ -248,7 +317,8 @@ export function saveSettings(settings) {
 
 // --- Export ---
 export function exportAllData() {
-  const data = {};
+  const profile = getActiveProfile();
+  const data = { profile };
   Object.entries(STORAGE_KEYS).forEach(([name, key]) => {
     data[name] = getData(key);
   });

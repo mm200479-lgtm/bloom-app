@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Moon, Sun, Palette, Download, Heart } from 'lucide-react';
-import { getSettings, saveSettings, exportAllData } from '../utils/storage';
+import { Moon, Sun, Palette, Download, Heart, LogOut, User, Edit3 } from 'lucide-react';
+import { getSettings, saveSettings, exportAllData, getActiveProfile, updateProfile, getActiveProfileId } from '../utils/storage';
 import './SettingsPage.css';
 
 const COLOR_SCHEMES = [
@@ -11,9 +11,14 @@ const COLOR_SCHEMES = [
   { id: 'berry', label: 'Berry', colors: ['#e8d0e8', '#b868b8'] },
 ];
 
-function SettingsPage({ onSettingsChange }) {
+const AVATARS = ['🌸', '🌊', '🦋', '🌙', '⭐', '🌈', '🔥', '🍀', '🎵', '💜', '🌻', '🐱', '🐶', '🦊', '🐰', '🎨'];
+
+function SettingsPage({ onSettingsChange, onSwitchProfile, profile }) {
   const [settings, setSettings] = useState(getSettings());
   const [exported, setExported] = useState(false);
+  const [editingName, setEditingName] = useState(false);
+  const [newName, setNewName] = useState(profile?.name || '');
+  const [editingAvatar, setEditingAvatar] = useState(false);
 
   const update = (key, value) => {
     const updated = { ...settings, [key]: value };
@@ -28,11 +33,25 @@ function SettingsPage({ onSettingsChange }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `bloom-data-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `bloom-${profile?.name || 'data'}-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
     setExported(true);
     setTimeout(() => setExported(false), 3000);
+  };
+
+  const handleNameSave = () => {
+    if (!newName.trim()) return;
+    updateProfile(getActiveProfileId(), { name: newName.trim() });
+    setEditingName(false);
+    // Force a re-render by reloading
+    window.location.reload();
+  };
+
+  const handleAvatarChange = (avatar) => {
+    updateProfile(getActiveProfileId(), { avatar });
+    setEditingAvatar(false);
+    window.location.reload();
   };
 
   return (
@@ -41,6 +60,60 @@ function SettingsPage({ onSettingsChange }) {
         <h1>Settings</h1>
         <p className="page-subtitle">Make Bloom yours ⚙️</p>
       </header>
+
+      {/* Profile */}
+      <div className="setting-section card">
+        <div className="setting-header">
+          <User size={18} />
+          <h3>Profile</h3>
+        </div>
+        <div className="profile-info">
+          <div className="profile-avatar-display">
+            <span className="current-avatar">{profile?.avatar}</span>
+            <button className="edit-avatar-btn" onClick={() => setEditingAvatar(!editingAvatar)}>
+              <Edit3 size={12} />
+            </button>
+          </div>
+          {editingAvatar && (
+            <div className="avatar-edit-grid slide-up">
+              {AVATARS.map(a => (
+                <button
+                  key={a}
+                  className={`avatar-option ${profile?.avatar === a ? 'active' : ''}`}
+                  onClick={() => handleAvatarChange(a)}
+                >
+                  {a}
+                </button>
+              ))}
+            </div>
+          )}
+          <div className="profile-name-section">
+            {editingName ? (
+              <div className="name-edit-row">
+                <input
+                  className="input-field"
+                  value={newName}
+                  onChange={e => setNewName(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && handleNameSave()}
+                  maxLength={20}
+                  autoFocus
+                />
+                <button className="name-save-btn" onClick={handleNameSave}>Save</button>
+              </div>
+            ) : (
+              <div className="name-display">
+                <span className="current-name">{profile?.name}</span>
+                <button className="edit-name-btn" onClick={() => setEditingName(true)}>
+                  <Edit3 size={12} /> Edit
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+        <button className="switch-profile-btn" onClick={onSwitchProfile}>
+          <LogOut size={14} /> Switch person
+        </button>
+      </div>
 
       {/* Theme */}
       <div className="setting-section card">
@@ -92,10 +165,10 @@ function SettingsPage({ onSettingsChange }) {
       <div className="setting-section card">
         <div className="setting-header">
           <Download size={18} />
-          <h3>Export Data</h3>
+          <h3>Export {profile?.name}'s Data</h3>
         </div>
         <p className="setting-desc">
-          Download all your data as a JSON file. Share it with your therapist or keep it as a backup.
+          Download all data as a JSON file. Share it with a therapist or keep as a backup.
         </p>
         <button className="export-btn" onClick={handleExport}>
           <Download size={16} /> {exported ? 'Downloaded! ✅' : 'Export all data'}
@@ -109,12 +182,12 @@ function SettingsPage({ onSettingsChange }) {
           <h3>About Bloom</h3>
         </div>
         <p className="setting-desc">
-          Bloom is a gentle mental health companion built with love. All your data stays on your device — nothing is ever sent anywhere.
+          Bloom is a gentle mental health companion built with love. All data stays on this device — nothing is ever sent anywhere. Each person's data is completely separate and private.
         </p>
         <p className="setting-desc" style={{ marginTop: 8 }}>
           💜 You are enough, exactly as you are.
         </p>
-        <p className="version">Version 2.0.0</p>
+        <p className="version">Version 2.1.0</p>
       </div>
     </div>
   );
