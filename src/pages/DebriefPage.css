@@ -1,0 +1,38 @@
+.debrief-page { padding: 20px 16px; }
+
+.debrief-saved {
+  text-align: center; padding: 14px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+}
+
+.debrief-intro {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.5;
+  margin-bottom: 14px; text-align: center;
+}
+
+.debrief-form { margin-bottom: 16px; }
+.debrief-question { margin-bottom: 12px; }
+.debrief-question textarea { resize: vertical; }
+.question-label {
+  display: block; font-size: 13px; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.debrief-history { margin-top: 16px; }
+
+.debrief-entry { margin-bottom: 8px; padding: 0; overflow: hidden; }
+
+.debrief-entry-header {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 12px 14px; background: none; text-align: left; color: var(--text-secondary);
+}
+.debrief-date { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+.debrief-preview { flex: 1; font-size: 12px; color: var(--text-light); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.debrief-detail { padding: 0 14px 14px; }
+.detail-field { margin-bottom: 10px; }
+.detail-label {
+  display: block; font-size: 11px; font-weight: 700; color: var(--lavender-dark);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;
+}
+.detail-text { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }

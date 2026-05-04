@@ -1,0 +1,75 @@
+.selfcare-page { padding: 20px 16px; }
+
+.selfcare-bonus {
+  text-align: center; padding: 14px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--lavender), var(--sage));
+  border-radius: 12px;
+}
+
+.selfcare-section { margin-bottom: 14px; }
+
+.section-header-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+}
+.section-header-row .section-title { flex: 1; margin-bottom: 0; }
+.section-count { font-size: 13px; font-weight: 700; color: var(--text-secondary); }
+
+.water-progress { margin-bottom: 10px; }
+.water-bar {
+  height: 8px; background: var(--bg-secondary); border-radius: 4px; overflow: hidden;
+}
+.water-fill {
+  height: 100%; background: linear-gradient(90deg, #90caf9, #42a5f5);
+  border-radius: 4px; transition: width 0.3s ease;
+}
+.water-done { display: block; font-size: 12px; color: var(--sage-dark); font-weight: 600; margin-top: 4px; text-align: center; }
+
+.water-controls { display: flex; align-items: center; gap: 8px; }
+.water-btn {
+  width: 36px; height: 36px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+.water-btn.minus { background: var(--bg-secondary); color: var(--text-secondary); }
+.water-btn.plus { background: var(--lavender); color: var(--lavender-dark); }
+
+.water-cups {
+  display: flex; flex-wrap: wrap; gap: 4px; flex: 1; justify-content: center;
+}
+.water-cup { font-size: 18px; opacity: 0.25; transition: opacity 0.2s; }
+.water-cup.filled { opacity: 1; }
+
+.meals-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 8px; }
+
+.meal-btn {
+  display: flex; align-items: center; gap: 8px; padding: 12px;
+  background: var(--bg-secondary); border-radius: 10px; text-align: left;
+  position: relative; border: 2px solid transparent; transition: all 0.2s;
+}
+.meal-btn.checked { background: var(--sage); border-color: var(--sage-dark); }
+.meal-emoji { font-size: 20px; }
+.meal-label { font-size: 13px; font-weight: 600; color: var(--text-primary); flex: 1; }
+.meal-check { color: var(--sage-dark); }
+
+.meals-note, .movement-note {
+  font-size: 11px; color: var(--text-light); text-align: center; margin-top: 6px;
+}
+
+.movement-toggle {
+  width: 100%; padding: 14px; border-radius: 12px; font-size: 14px;
+  font-weight: 600; background: var(--bg-secondary); color: var(--text-secondary);
+  border: 2px solid transparent; transition: all 0.2s;
+}
+.movement-toggle.active {
+  background: var(--sage); border-color: var(--sage-dark); color: var(--sage-dark);
+}
+
+.movement-types { margin-top: 10px; }
+.movement-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+.movement-options { display: flex; flex-wrap: wrap; gap: 6px; }
+.movement-type-btn {
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  background: var(--bg-secondary); color: var(--text-secondary);
+  text-transform: capitalize;
+}
+.movement-type-btn.active { background: var(--lavender); color: var(--lavender-dark); }

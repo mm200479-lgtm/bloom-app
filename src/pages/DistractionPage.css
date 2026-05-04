@@ -1,0 +1,35 @@
+.distraction-page { padding: 20px 16px; }
+
+.distraction-section { margin-bottom: 20px; }
+
+.distraction-header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.distraction-header .section-title { flex: 1; margin-bottom: 0; }
+.distraction-emoji { font-size: 20px; }
+
+.shuffle-btn {
+  display: flex; align-items: center; gap: 4px; padding: 6px 12px;
+  border-radius: 8px; font-size: 12px; font-weight: 600;
+  background: var(--lavender); color: var(--lavender-dark);
+}
+
+.random-suggestion {
+  margin-bottom: 10px; padding: 12px 14px;
+}
+.random-suggestion p { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+
+.distraction-items { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+
+.distraction-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; background: var(--bg-secondary); border-radius: 8px;
+}
+.item-text { font-size: 13px; color: var(--text-secondary); flex: 1; }
+
+.add-distraction-form { display: flex; flex-direction: column; gap: 6px; }
+
+.add-item-btn {
+  display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600;
+  color: var(--text-light); padding: 6px 0;
+}

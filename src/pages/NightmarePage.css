@@ -1,0 +1,60 @@
+.nightmare-page { padding: 20px 16px; }
+
+.nm-saved {
+  text-align: center; padding: 16px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+}
+
+.grounding-card { text-align: center; margin-bottom: 16px; padding: 20px; }
+.grounding-card h3 { font-size: 14px; font-weight: 700; margin: 8px 0; color: var(--text-primary); }
+.grounding-text { font-size: 15px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px; }
+.grounding-progress { display: flex; gap: 4px; justify-content: center; margin-bottom: 12px; }
+.g-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bg-secondary); }
+.g-dot.active { background: var(--lavender-dark); }
+
+.nm-form { margin-bottom: 16px; }
+.nm-form textarea { resize: vertical; }
+
+.nm-intensity { margin: 10px 0; }
+.nm-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+.intensity-btns { display: flex; gap: 6px; margin-bottom: 4px; }
+.int-btn {
+  width: 40px; height: 40px; border-radius: 10px; font-size: 14px; font-weight: 700;
+  background: var(--bg-secondary); color: var(--text-secondary);
+}
+.int-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+.nm-scale { font-size: 10px; color: var(--text-light); }
+
+.nm-recurring {
+  display: flex; align-items: center; gap: 8px; font-size: 13px;
+  color: var(--text-secondary); margin: 10px 0;
+}
+.nm-recurring input { accent-color: var(--lavender-dark); }
+
+.nm-stats {
+  display: flex; justify-content: space-around; text-align: center; margin-bottom: 14px;
+}
+.stat-num { display: block; font-size: 20px; font-weight: 700; color: var(--text-primary); }
+.stat-label { font-size: 11px; color: var(--text-light); }
+
+.nm-patterns { margin-bottom: 16px; }
+.pattern-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 4px;
+}
+.pattern-text { font-size: 12px; color: var(--text-secondary); flex: 1; }
+.pattern-date { font-size: 11px; color: var(--text-light); flex-shrink: 0; margin-left: 8px; }
+
+.nm-history { margin-top: 16px; }
+
+.nm-entry {
+  padding: 10px 12px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 6px;
+}
+.nm-entry-header { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.nm-entry-date { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.nm-entry-intensity { font-size: 11px; color: var(--text-light); margin-left: auto; }
+.nm-recurring-badge {
+  font-size: 10px; font-weight: 700; background: var(--peach); color: var(--text-primary);
+  padding: 2px 6px; border-radius: 6px;
+}
+.nm-entry-text { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }

@@ -1,0 +1,82 @@
+.period-page { padding: 20px 16px; }
+
+.period-saved {
+  text-align: center; padding: 16px; font-size: 15px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+}
+
+.pms-alert {
+  display: flex; align-items: center; gap: 10px; padding: 14px;
+  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  border-radius: 14px; margin-bottom: 14px; font-size: 13px; font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prediction-card {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+
+.prediction-label { display: block; font-size: 11px; color: var(--text-light); }
+.prediction-date { display: block; font-size: 15px; font-weight: 700; color: var(--text-primary); }
+
+.cycle-setting {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+}
+
+.cycle-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+.cycle-input-row { display: flex; align-items: center; gap: 12px; }
+.cycle-input-row button {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--bg-secondary);
+  font-size: 16px; font-weight: 700; color: var(--text-secondary);
+  display: flex; align-items: center; justify-content: center;
+}
+.cycle-number { font-size: 18px; font-weight: 700; color: var(--text-primary); min-width: 30px; text-align: center; }
+
+.period-calendar { margin-bottom: 14px; }
+
+.cal-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+.cal-header button { background: none; padding: 4px; color: var(--text-secondary); }
+.cal-title { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+
+.cal-days-header {
+  display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;
+  font-size: 11px; font-weight: 600; color: var(--text-light); margin-bottom: 4px;
+}
+
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+
+.cal-day {
+  text-align: center; padding: 6px 0; font-size: 12px; border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.cal-day.today { font-weight: 700; color: var(--text-primary); box-shadow: inset 0 0 0 2px var(--lavender-dark); }
+.cal-day.period-day { background: var(--blush); color: var(--blush-dark); font-weight: 700; }
+.cal-day.predicted-day { background: var(--lavender); color: var(--lavender-dark); font-weight: 600; }
+.cal-day.pms-day { background: var(--peach); color: var(--text-primary); }
+
+.cal-legend {
+  display: flex; gap: 12px; justify-content: center; margin-top: 8px; font-size: 11px; color: var(--text-light);
+}
+.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.period-dot { background: var(--blush); }
+.predicted-dot { background: var(--lavender); }
+.pms-dot { background: var(--peach); }
+
+.period-form { margin-bottom: 14px; }
+.period-form label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin: 8px 0 4px; }
+.period-form textarea { resize: vertical; }
+.form-actions { display: flex; gap: 8px; margin-top: 10px; }
+
+.period-history { margin-top: 16px; }
+
+.period-entry {
+  display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px;
+  background: var(--bg-secondary); border-radius: 10px; margin-bottom: 6px;
+}
+
+.entry-dates { display: block; font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.entry-note { display: block; font-size: 12px; color: var(--text-secondary); margin-top: 2px; }

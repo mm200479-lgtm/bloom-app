@@ -1,43 +1,88 @@
 import React from 'react';
-import {
-  BookHeart, Shield, Clock, Timer, Heart, Compass, Volume2,
-  AlertTriangle, Zap, Camera, Battery, Trophy, Flower2, Settings, Download
-} from 'lucide-react';
 import './MorePage.css';
 
 const SECTIONS = [
   {
-    title: 'Journaling & Reflection',
+    title: '📊 Tracking & Insights',
     items: [
-      { id: 'journal', label: 'Journal', desc: 'Write, prompt, gratitude, worry dump', icon: BookHeart, emoji: '📝' },
-      { id: 'photos', label: 'Photo Journal', desc: 'One photo a day', icon: Camera, emoji: '📸' },
-      { id: 'wins', label: 'Win Jar', desc: 'Save your victories', icon: Trophy, emoji: '🏆' },
+      { id: 'insights', label: 'Insights Dashboard', desc: 'Mood trends & patterns', emoji: '📊' },
+      { id: 'energy', label: 'Energy Tracker', desc: 'Track energy separately', emoji: '🔋' },
+      { id: 'sleep', label: 'Sleep Tracker', desc: 'Log sleep & nightmares', emoji: '😴' },
+      { id: 'period', label: 'Period Tracker', desc: 'Cycle predictions & PMS', emoji: '🩸' },
+      { id: 'social', label: 'Social Battery', desc: 'Track social energy', emoji: '👥' },
+      { id: 'triggers', label: 'Trigger Log', desc: 'Spot patterns', emoji: '📋' },
     ]
   },
   {
-    title: 'Coping & Calming',
+    title: '📝 Journaling & Reflection',
     items: [
-      { id: 'coping', label: 'Coping Cards', desc: 'Swipeable coping strategies', icon: Heart, emoji: '💜' },
-      { id: 'emotions', label: 'Emotion Wheel', desc: 'Name what you feel', icon: Compass, emoji: '🎯' },
-      { id: 'sounds', label: 'Sound Machine', desc: 'Rain, ocean, white noise', icon: Volume2, emoji: '🎵' },
-      { id: 'safety', label: 'Safety Plan', desc: 'Crisis contacts & coping tools', icon: Shield, emoji: '🛡️' },
+      { id: 'journal', label: 'Journal', desc: 'Write, prompt, gratitude', emoji: '📝' },
+      { id: 'photos', label: 'Photo Journal', desc: 'One photo a day', emoji: '📸' },
+      { id: 'wins', label: 'Win Jar', desc: 'Save your victories', emoji: '🏆' },
+      { id: 'letters', label: 'Letters to Self', desc: 'Future, past, open when...', emoji: '💌' },
+      { id: 'dreams', label: 'Dream Journal', desc: 'Log your dreams', emoji: '💭' },
+      { id: 'nightmares', label: 'Nightmare Journal', desc: 'Process bad dreams', emoji: '🌙' },
+      { id: 'quotes', label: 'Quote Collection', desc: 'Save quotes you love', emoji: '💬' },
+      { id: 'braindump', label: 'Brain Dump', desc: 'Get thoughts out', emoji: '🧠' },
     ]
   },
   {
-    title: 'Tracking & Growth',
+    title: '🧘 Coping & Calming',
     items: [
-      { id: 'routines', label: 'Routines', desc: 'Morning & evening checklists', icon: Clock, emoji: '⏰' },
-      { id: 'pomodoro', label: 'Focus Timer', desc: 'Pomodoro for ADHD brains', icon: Timer, emoji: '🍅' },
-      { id: 'energy', label: 'Energy Tracker', desc: 'Track your energy levels', icon: Battery, emoji: '🔋' },
-      { id: 'triggers', label: 'Trigger Log', desc: 'Spot patterns with your therapist', icon: AlertTriangle, emoji: '📋' },
-      { id: 'activity', label: 'Activity Ideas', desc: 'Gentle nudges when you\'re stuck', icon: Zap, emoji: '💡' },
+      { id: 'coping', label: 'Coping Cards', desc: 'Swipeable strategies', emoji: '💜' },
+      { id: 'emotions', label: 'Emotion Wheel', desc: 'Name what you feel', emoji: '🎯' },
+      { id: 'sounds', label: 'Sound Machine', desc: 'Rain, ocean, noise', emoji: '🎵' },
+      { id: 'dbt', label: 'DBT Skills', desc: 'TIPP, DEAR MAN & more', emoji: '🧰' },
+      { id: 'thought', label: 'Thought Challenger', desc: 'CBT thought records', emoji: '💡' },
+      { id: 'angry', label: 'Anger Thermometer', desc: 'Coping by level', emoji: '🌡️' },
+      { id: 'bodymap', label: 'Body Map', desc: 'Where do you feel it?', emoji: '🫀' },
+      { id: 'urgesurf', label: 'Urge Surfing', desc: 'Ride the wave timer', emoji: '🏄' },
+      { id: 'worrytime', label: 'Worry Time', desc: '15 min allowed worrying', emoji: '⏰' },
+      { id: 'distraction', label: 'Distraction Box', desc: 'Quick, medium, long', emoji: '📦' },
+      { id: 'sensory', label: 'Sensory Kit', desc: 'Your grounding tools', emoji: '✋' },
     ]
   },
   {
-    title: 'Rewards & Settings',
+    title: '🛡️ Safety & Support',
     items: [
-      { id: 'garden', label: 'My Garden', desc: 'Grow flowers with your progress', icon: Flower2, emoji: '🌸' },
-      { id: 'settings', label: 'Settings', desc: 'Theme, colors, export data', icon: Settings, emoji: '⚙️' },
+      { id: 'safety', label: 'Safety Plan', desc: 'Crisis contacts & tools', emoji: '🛡️' },
+      { id: 'debrief', label: 'Crisis Debrief', desc: 'Process what happened', emoji: '📋' },
+      { id: 'scripts', label: 'Conversation Scripts', desc: 'What to say when...', emoji: '💬' },
+    ]
+  },
+  {
+    title: '📚 ADHD & School',
+    items: [
+      { id: 'routines', label: 'Routines', desc: 'Morning & evening', emoji: '⏰' },
+      { id: 'pomodoro', label: 'Focus Timer', desc: 'Pomodoro for ADHD', emoji: '🍅' },
+      { id: 'homework', label: 'Homework Planner', desc: 'Assignments & steps', emoji: '📚' },
+      { id: 'goals', label: 'Goal Tracker', desc: 'Short & long term', emoji: '🎯' },
+      { id: 'appointments', label: 'Appointments', desc: 'Therapy, doctor, school', emoji: '📅' },
+      { id: 'meds', label: 'Medication Reminders', desc: 'Track daily meds', emoji: '💊' },
+    ]
+  },
+  {
+    title: '💪 Self-Care & Body',
+    items: [
+      { id: 'selfcare', label: 'Self-Care Tracker', desc: 'Water, meals, movement', emoji: '💧' },
+      { id: 'activity', label: 'Activity Ideas', desc: 'Based on energy level', emoji: '💡' },
+      { id: 'rewardmenu', label: 'Reward Menu', desc: 'Things that feel good', emoji: '🎁' },
+    ]
+  },
+  {
+    title: '🌸 Fun & Growth',
+    items: [
+      { id: 'garden', label: 'My Garden', desc: 'Grow with your progress', emoji: '🌸' },
+      { id: 'achievements', label: 'Achievements', desc: 'Badges & milestones', emoji: '🏅' },
+      { id: 'bucketlist', label: 'Bucket List', desc: 'Things to look forward to', emoji: '✨' },
+      { id: 'playlists', label: 'Playlist Builder', desc: 'Mood-based playlists', emoji: '🎧' },
+      { id: 'learn', label: 'Learn About It', desc: 'ADHD, anxiety, PTSD...', emoji: '📖' },
+    ]
+  },
+  {
+    title: '⚙️ Settings',
+    items: [
+      { id: 'settings', label: 'Settings', desc: 'Theme, colors, sync, export', emoji: '⚙️' },
     ]
   },
 ];

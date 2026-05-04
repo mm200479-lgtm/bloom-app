@@ -1,0 +1,32 @@
+.reward-page { padding: 20px 16px; }
+
+.random-reward-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 12px; border-radius: 12px; background: var(--bg-secondary);
+  color: var(--text-secondary); font-size: 14px; font-weight: 600; margin-bottom: 14px;
+}
+
+.random-reward-card {
+  text-align: center; padding: 24px 20px;
+  background: linear-gradient(135deg, var(--lavender), var(--peach));
+  border-radius: 16px; margin-bottom: 16px;
+}
+.random-reward-text { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 12px 0 6px; }
+.random-reward-cat { font-size: 12px; color: var(--text-secondary); }
+
+.reward-form { margin-bottom: 16px; }
+.reward-form .input-field { margin-bottom: 8px; }
+.reward-categories { display: flex; gap: 6px; margin-bottom: 10px; }
+.rcat-btn {
+  padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  background: var(--bg-secondary); color: var(--text-secondary);
+}
+.rcat-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.reward-section { margin-bottom: 14px; }
+
+.reward-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 4px;
+}
+.reward-text { font-size: 13px; color: var(--text-primary); flex: 1; }

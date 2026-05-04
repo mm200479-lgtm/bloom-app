@@ -1,0 +1,21 @@
+.braindump-page { padding: 20px 16px; }
+
+.dump-input-section { margin-bottom: 16px; }
+.dump-textarea { resize: vertical; margin-bottom: 10px; }
+
+.dump-saved {
+  display: block; font-size: 13px; font-weight: 600; color: var(--sage-dark);
+  margin-top: 6px; text-align: center;
+}
+
+.dump-list { margin-top: 16px; }
+
+.dump-item {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 10px 12px; background: var(--bg-secondary); border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+.dump-content { flex: 1; }
+.dump-text { font-size: 13px; color: var(--text-primary); line-height: 1.4; word-break: break-word; }
+.dump-date { font-size: 11px; color: var(--text-light); margin-top: 4px; display: block; }

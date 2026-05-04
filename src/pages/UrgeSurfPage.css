@@ -1,0 +1,51 @@
+.urgesurf-page { padding: 20px 16px; }
+
+.surf-timer { text-align: center; margin-bottom: 16px; }
+
+.wave-visual { margin-bottom: 16px; }
+.wave-container {
+  position: relative; height: 40px; background: var(--bg-secondary);
+  border-radius: 20px; overflow: hidden;
+}
+.wave-fill {
+  height: 100%; background: linear-gradient(90deg, #8ab8d8, #64b5f6);
+  border-radius: 20px; transition: width 1s linear;
+}
+.wave-icon {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  color: white; transition: left 1s linear; z-index: 1;
+}
+
+.surf-time-display { margin-bottom: 12px; }
+.surf-time { display: block; font-size: 36px; font-weight: 700; color: var(--text-primary); }
+.surf-label { font-size: 12px; color: var(--text-light); }
+
+.surf-controls { display: flex; gap: 10px; justify-content: center; }
+
+.surf-message {
+  text-align: center; padding: 16px;
+  background: linear-gradient(135deg, var(--lavender), var(--sage));
+  margin-bottom: 16px;
+}
+.surf-message p { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.5; }
+
+.surf-distractions { margin-bottom: 16px; }
+.distraction-suggestion {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  background: var(--bg-secondary); border-radius: 8px; margin-bottom: 4px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.suggestion-num {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--lavender);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--lavender-dark); flex-shrink: 0;
+}
+
+.surf-info { margin-top: 16px; }
+.surf-explain { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+
+.surf-finished { text-align: center; padding: 30px 0; }
+.surf-finished .finished-emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+.surf-finished h2 { font-size: 22px; color: var(--text-primary); margin-bottom: 8px; }
+.finished-text { font-size: 15px; color: var(--text-secondary); font-weight: 600; }
+.finished-sub { font-size: 13px; color: var(--text-light); margin: 4px 0 16px; }

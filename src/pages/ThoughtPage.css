@@ -1,0 +1,52 @@
+.thought-page { padding: 20px 16px; }
+
+.thought-saved {
+  text-align: center; padding: 30px; color: var(--sage-dark);
+}
+.thought-saved p { font-size: 14px; font-weight: 600; margin-top: 8px; }
+
+.start-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 16px; }
+
+.thought-wizard { margin-bottom: 16px; }
+
+.wizard-progress { display: flex; gap: 4px; justify-content: center; margin-bottom: 8px; }
+.progress-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--bg-secondary);
+  transition: all 0.2s;
+}
+.progress-dot.active { background: var(--lavender); }
+.progress-dot.current { transform: scale(1.3); background: var(--lavender-dark); }
+
+.wizard-step-label { display: block; text-align: center; font-size: 11px; color: var(--text-light); margin-bottom: 12px; }
+.wizard-title { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.wizard-prompt { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.4; }
+
+.intensity-slider {
+  display: flex; align-items: center; gap: 10px; margin-top: 8px;
+}
+.intensity-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.slider { flex: 1; accent-color: var(--lavender-dark); }
+.intensity-value { font-size: 14px; font-weight: 700; color: var(--text-primary); min-width: 35px; }
+
+.wizard-actions { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
+
+.thought-history { margin-top: 16px; }
+
+.thought-record { margin-bottom: 10px; }
+.record-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.record-date { font-size: 12px; font-weight: 700; color: var(--text-light); }
+
+.record-field { margin-bottom: 6px; }
+.field-label { display: block; font-size: 10px; font-weight: 700; color: var(--lavender-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+.field-value { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+.field-value.balanced { color: var(--sage-dark); font-weight: 600; }
+
+.record-emotions {
+  display: flex; align-items: center; gap: 8px; margin: 8px 0;
+}
+.emotion-badge {
+  font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 8px;
+  background: var(--blush); color: var(--blush-dark);
+}
+.emotion-badge.after { background: var(--sage); color: var(--sage-dark); }
+.emotion-arrow { color: var(--text-light); font-size: 14px; }

@@ -1,0 +1,41 @@
+.dream-page { padding: 20px 16px; }
+
+.dream-saved {
+  text-align: center; padding: 14px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+}
+
+.dream-form { margin-bottom: 16px; }
+.dream-form textarea { resize: vertical; margin-bottom: 8px; }
+
+.dream-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+
+.dream-moods { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.mood-btn {
+  padding: 6px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  background: var(--bg-secondary); color: var(--text-secondary);
+}
+.mood-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.dream-vivid {
+  display: flex; align-items: center; gap: 6px; font-size: 13px;
+  color: var(--text-secondary); margin-bottom: 10px;
+}
+.dream-vivid input { accent-color: var(--lavender-dark); }
+
+.dream-list { margin-top: 16px; }
+
+.dream-entry { margin-bottom: 8px; }
+.dream-entry-header {
+  display: flex; align-items: center; gap: 6px; margin-bottom: 6px; flex-wrap: wrap;
+}
+.dream-date { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.vivid-badge {
+  display: flex; align-items: center; gap: 2px; font-size: 10px; font-weight: 700;
+  background: var(--peach); color: var(--text-primary); padding: 2px 6px; border-radius: 6px;
+}
+.dream-mood-badge {
+  font-size: 10px; font-weight: 600; background: var(--lavender);
+  color: var(--lavender-dark); padding: 2px 6px; border-radius: 6px;
+}
+.dream-text { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }

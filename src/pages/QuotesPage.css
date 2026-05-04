@@ -1,0 +1,38 @@
+.quotes-page { padding: 20px 16px; }
+
+.quote-saved {
+  text-align: center; padding: 14px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+}
+
+.random-quote-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 12px; border-radius: 12px; background: var(--bg-secondary);
+  color: var(--text-secondary); font-size: 14px; font-weight: 600; margin-bottom: 14px;
+}
+.random-quote-btn:hover { background: var(--lavender); }
+
+.random-quote-card {
+  text-align: center; padding: 24px 20px;
+  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  border-radius: 16px; margin-bottom: 16px;
+}
+.random-quote-text {
+  font-size: 16px; font-weight: 700; color: var(--text-primary);
+  margin: 12px 0 8px; line-height: 1.5; font-style: italic;
+}
+.random-quote-source { font-size: 12px; color: var(--text-secondary); }
+
+.quote-form { margin-bottom: 16px; }
+.quote-form textarea { resize: vertical; margin-bottom: 8px; }
+.quote-form .input-field { margin-bottom: 8px; }
+
+.quotes-list { margin-top: 16px; }
+
+.quote-item {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 12px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 6px;
+}
+.quote-content { flex: 1; }
+.quote-text { font-size: 13px; color: var(--text-primary); line-height: 1.4; font-style: italic; }
+.quote-source { font-size: 11px; color: var(--text-light); margin-top: 4px; display: block; }

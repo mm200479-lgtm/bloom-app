@@ -1,0 +1,126 @@
+.homework-page { padding: 20px 16px; }
+
+.hw-celebration {
+  text-align: center; padding: 14px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); background: var(--sage); border-radius: 12px;
+  margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+
+.hw-filter-row {
+  display: flex; gap: 6px; margin-bottom: 14px;
+}
+.filter-btn {
+  flex: 1; padding: 8px 10px; border-radius: 10px; font-size: 12px;
+  font-weight: 600; background: var(--bg-secondary); color: var(--text-secondary);
+  text-align: center;
+}
+.filter-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+.filter-btn.has-overdue { color: var(--danger); }
+
+.hw-add-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; margin-bottom: 14px;
+}
+
+.hw-add-form { padding: 16px; margin-bottom: 14px; }
+.hw-add-form .input-field { margin-bottom: 10px; }
+
+.subject-picker {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
+}
+.subject-btn {
+  display: flex; align-items: center; gap: 4px; padding: 6px 10px;
+  border-radius: 8px; background: var(--bg-secondary); border: 2px solid transparent;
+  font-size: 12px;
+}
+.subject-btn.active { color: white; }
+.subject-label { font-weight: 600; }
+
+.hw-date-row { display: flex; gap: 12px; align-items: flex-end; margin-bottom: 12px; }
+.hw-date-field { flex: 1; }
+.hw-date-field label {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;
+}
+.hw-date-field .input-field { margin-bottom: 0; }
+.start-by-date {
+  display: block; padding: 10px; font-size: 14px; font-weight: 700;
+  color: var(--text-primary); background: var(--bg-secondary); border-radius: 10px;
+  text-align: center;
+}
+
+.hw-steps-section { margin-bottom: 12px; }
+.steps-label {
+  display: block; font-size: 12px; font-weight: 600;
+  color: var(--text-secondary); margin-bottom: 6px;
+}
+.step-input { margin-bottom: 6px; }
+.add-step-btn {
+  font-size: 12px; font-weight: 600; color: var(--lavender-dark);
+  padding: 4px 0;
+}
+
+.hw-form-actions { display: flex; gap: 8px; }
+.hw-form-actions .primary-btn { flex: 1; }
+.hw-form-actions .secondary-btn {
+  flex: 1; padding: 12px; border-radius: 12px; background: var(--bg-secondary);
+  color: var(--text-secondary); font-size: 14px; font-weight: 600; text-align: center;
+}
+
+.hw-list { display: flex; flex-direction: column; gap: 8px; }
+
+.hw-item {
+  background: var(--bg-secondary); border-radius: 12px;
+  border-left: 4px solid var(--text-light); overflow: hidden;
+}
+.hw-item.done { opacity: 0.65; }
+.hw-item.overdue { background: #fff5f5; }
+
+.hw-item-header {
+  display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px;
+  cursor: pointer;
+}
+
+.hw-check {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 2px solid var(--text-light); display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+}
+.hw-check.checked { background: var(--sage); border-color: var(--sage-dark); color: white; }
+
+.hw-item-info { flex: 1; }
+.hw-subject { font-size: 11px; font-weight: 700; display: block; margin-bottom: 2px; }
+.hw-desc { font-size: 14px; font-weight: 600; color: var(--text-primary); display: block; }
+.hw-desc.completed { text-decoration: line-through; color: var(--text-light); }
+.hw-due { font-size: 11px; color: var(--text-secondary); display: block; margin-top: 2px; }
+
+.hw-item-actions { flex-shrink: 0; color: var(--text-light); padding-top: 4px; }
+
+.hw-item-expanded { padding: 0 14px 14px; }
+
+.hw-start-by {
+  font-size: 12px; color: var(--text-secondary); margin-bottom: 10px;
+}
+
+.hw-steps { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+
+.hw-step {
+  display: flex; align-items: center; gap: 8px; padding: 6px 0;
+  font-size: 13px; color: var(--text-primary);
+}
+.hw-step.done { color: var(--text-light); }
+
+.step-check {
+  width: 18px; height: 18px; border-radius: 4px;
+  border: 2px solid var(--text-light); display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-check.checked { background: var(--sage); border-color: var(--sage-dark); color: white; }
+
+.hw-step .completed { text-decoration: line-through; }
+
+.hw-delete {
+  display: flex; align-items: center; gap: 4px; font-size: 12px;
+  color: var(--text-light); padding: 4px 0;
+}
+.hw-delete:hover { color: var(--danger); }

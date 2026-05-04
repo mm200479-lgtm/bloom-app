@@ -1,0 +1,53 @@
+.playlist-page { padding: 20px 16px; }
+
+.playlist-form { margin-bottom: 16px; }
+.playlist-form .input-field { margin-bottom: 8px; }
+.pl-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+
+.mood-options { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.mood-chip {
+  padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  background: var(--bg-secondary); color: var(--text-secondary);
+}
+.mood-chip.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.playlists-list { display: flex; flex-direction: column; gap: 8px; }
+
+.playlist-card { padding: 0; overflow: hidden; }
+.playlist-card.open { border-color: var(--lavender); }
+
+.playlist-header {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 14px; background: none; text-align: left; color: var(--text-secondary);
+}
+.pl-mood-emoji { font-size: 22px; flex-shrink: 0; }
+.pl-info { flex: 1; }
+.pl-name { display: block; font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.pl-count { font-size: 11px; color: var(--text-light); }
+
+.playlist-content { padding: 0 14px 14px; }
+
+.song-list { margin-bottom: 8px; }
+.song-item {
+  display: flex; align-items: center; gap: 8px; padding: 6px 0;
+  border-bottom: 1px solid var(--bg-secondary);
+}
+.song-item:last-child { border-bottom: none; }
+.song-num { font-size: 11px; color: var(--text-light); width: 20px; text-align: center; }
+.song-info { flex: 1; }
+.song-title { display: block; font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.song-artist { font-size: 11px; color: var(--text-light); }
+
+.no-songs { font-size: 12px; color: var(--text-light); text-align: center; padding: 8px; }
+
+.add-song-form { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+
+.add-song-btn {
+  display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600;
+  color: var(--text-light); padding: 6px 0;
+}
+
+.delete-playlist-btn {
+  display: flex; align-items: center; gap: 4px; font-size: 11px;
+  color: var(--text-light); padding: 6px 0; margin-top: 8px;
+}

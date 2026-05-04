@@ -1,0 +1,65 @@
+.bodymap-page { padding: 20px 16px; }
+
+.bm-saved {
+  text-align: center; padding: 14px; font-size: 14px; font-weight: 700;
+  color: var(--sage-dark); margin-bottom: 12px;
+}
+
+.body-outline { margin-bottom: 16px; padding: 20px; }
+
+.body-figure {
+  position: relative; width: 160px; height: 340px; margin: 0 auto;
+}
+
+/* Body parts using CSS divs */
+.body-part { position: absolute; background: var(--lavender); border-radius: 50%; opacity: 0.3; }
+.body-part.head { width: 50px; height: 50px; top: 0; left: 50%; transform: translateX(-50%); }
+.body-part.neck { width: 20px; height: 20px; top: 48px; left: 50%; transform: translateX(-50%); border-radius: 4px; }
+.body-part.torso { width: 80px; height: 100px; top: 65px; left: 50%; transform: translateX(-50%); border-radius: 20px; }
+.body-part.arm-left { width: 22px; height: 90px; top: 70px; left: 12px; border-radius: 11px; transform: rotate(8deg); }
+.body-part.arm-right { width: 22px; height: 90px; top: 70px; right: 12px; border-radius: 11px; transform: rotate(-8deg); }
+.body-part.hand-left { width: 18px; height: 22px; top: 158px; left: 8px; border-radius: 8px; }
+.body-part.hand-right { width: 18px; height: 22px; top: 158px; right: 8px; border-radius: 8px; }
+.body-part.leg-left { width: 28px; height: 120px; top: 165px; left: 42px; border-radius: 14px; transform: rotate(2deg); }
+.body-part.leg-right { width: 28px; height: 120px; top: 165px; right: 42px; border-radius: 14px; transform: rotate(-2deg); }
+
+/* Tappable regions */
+.body-region {
+  position: absolute; transform: translate(-50%, -50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(180, 160, 220, 0.2); border: 2px solid transparent;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2; transition: all 0.2s;
+}
+.body-region:hover, .body-region:active { background: rgba(180, 160, 220, 0.4); }
+.body-region.selected { border-color: var(--lavender-dark); background: rgba(180, 160, 220, 0.5); transform: translate(-50%, -50%) scale(1.1); }
+.body-region.has-entry { background: rgba(180, 160, 220, 0.35); }
+
+.region-label {
+  font-size: 8px; font-weight: 700; color: var(--text-primary);
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+
+.bm-form { margin-bottom: 16px; }
+.emotion-options { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.emotion-btn {
+  padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  background: var(--bg-secondary); color: var(--text-secondary);
+}
+.emotion-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.bm-history { margin-top: 16px; }
+
+.bm-entry {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  background: var(--bg-secondary); border-radius: 8px; margin-bottom: 4px;
+}
+.bm-region-badge {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  background: var(--lavender); color: var(--lavender-dark);
+  padding: 2px 8px; border-radius: 6px; flex-shrink: 0;
+}
+.bm-entry-content { flex: 1; }
+.bm-emotion { display: block; font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.bm-note { display: block; font-size: 11px; color: var(--text-light); }
+.bm-date { font-size: 11px; color: var(--text-light); flex-shrink: 0; }
