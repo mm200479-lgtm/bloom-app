@@ -3,7 +3,7 @@ import { Plus, Pill, Check, Clock, Trash2, History, ChevronLeft } from 'lucide-r
 import { getMeds, saveMeds } from '../utils/storage';
 import './MedsPage.css';
 
-function MedsPage() {
+function MedsPage({ onBack }) {
   const [data, setData] = useState({ medications: [], logs: [] });
   const [showAdd, setShowAdd] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
@@ -105,6 +105,7 @@ function MedsPage() {
 
   return (
     <div className="meds-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Medication Reminders 💊</h1>
         <p className="page-subtitle">Taking care of yourself includes taking your meds</p>

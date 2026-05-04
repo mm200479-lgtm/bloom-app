@@ -1,0 +1,99 @@
+.colorflood-page {
+  padding: 20px 16px;
+}
+
+.cf-stats {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.cf-stat {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.cf-complete {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cf-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cf-row {
+  display: flex;
+  gap: 2px;
+}
+
+.cf-cell {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cf-palette {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cf-color-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cf-color-btn:hover:not(:disabled) {
+  transform: scale(1.15);
+}
+
+.cf-color-btn:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+.cf-color-btn.current {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+  cursor: default;
+}
+
+.cf-color-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

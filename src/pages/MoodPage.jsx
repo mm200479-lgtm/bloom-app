@@ -25,7 +25,7 @@ const FOLLOW_UPS = [
   "What would help right now?",
 ];
 
-function MoodPage() {
+function MoodPage({ onBack }) {
   const [moods, setMoods] = useState([]);
   const [selectedMood, setSelectedMood] = useState(null);
   const [note, setNote] = useState('');
@@ -67,6 +67,7 @@ function MoodPage() {
 
   return (
     <div className="mood-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>How are you feeling?</h1>
         <p className="page-subtitle">No wrong answers here 💜</p>

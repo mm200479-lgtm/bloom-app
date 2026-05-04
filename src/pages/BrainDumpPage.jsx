@@ -3,7 +3,7 @@ import { Plus, Trash2, Brain } from 'lucide-react';
 import { getBrainDump, addBrainDump, deleteBrainDump } from '../utils/storage';
 import './BrainDumpPage.css';
 
-function BrainDumpPage() {
+function BrainDumpPage({ onBack }) {
   const [dumps, setDumps] = useState([]);
   const [text, setText] = useState('');
   const [saved, setSaved] = useState(false);
@@ -25,6 +25,7 @@ function BrainDumpPage() {
 
   return (
     <div className="braindump-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Brain Dump 🧠</h1>
         <p className="page-subtitle">Get it out of your head and onto the page</p>

@@ -19,7 +19,7 @@ const INTENSITY = [
   { level: 4, label: 'Severe', emoji: '🔴' },
 ];
 
-function TriggerPage() {
+function TriggerPage({ onBack }) {
   const [triggers, setTriggers] = useState([]);
   const [adding, setAdding] = useState(false);
   const [category, setCategory] = useState('');
@@ -55,6 +55,7 @@ function TriggerPage() {
 
   return (
     <div className="trigger-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Trigger Log</h1>
         <p className="page-subtitle">Track patterns to share with your therapist 📋</p>

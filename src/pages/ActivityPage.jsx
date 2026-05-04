@@ -77,7 +77,7 @@ const LEVELS = [
   },
 ];
 
-function ActivityPage() {
+function ActivityPage({ onBack }) {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [suggestion, setSuggestion] = useState(null);
 
@@ -94,6 +94,7 @@ function ActivityPage() {
 
   return (
     <div className="activity-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Activity Ideas</h1>
         <p className="page-subtitle">Gentle nudges based on your energy level 💡</p>

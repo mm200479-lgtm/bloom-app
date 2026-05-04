@@ -55,6 +55,14 @@
   --blush-dark: #d868a0;
 }
 
+[data-color="rosegold"] { --lavender: #f5ddd5; --lavender-dark: #d4a08a; --blush: #f0d0c8; --blush-dark: #c88a70; }
+[data-color="midnight"] { --lavender: #d0d8f5; --lavender-dark: #6878b8; --blush: #d8d0f0; --blush-dark: #8070b8; }
+[data-color="cottoncandy"] { --lavender: #f0d8f0; --lavender-dark: #c890c8; --blush: #d8e8f5; --blush-dark: #90b0d8; }
+[data-color="sageHoney"] { --lavender: #e0e8d0; --lavender-dark: #8aa060; --blush: #f0e8d0; --blush-dark: #c8a860; }
+[data-color="peach"] { --lavender: #f8e0d0; --lavender-dark: #d89870; --blush: #f5d8c8; --blush-dark: #c88860; }
+[data-color="cloud"] { --lavender: #e8ecf0; --lavender-dark: #8898b0; --blush: #e0e8f0; --blush-dark: #7888a8; }
+[data-color="aurora"] { --lavender: #d0e8e8; --lavender-dark: #50a0a0; --blush: #d8d0f0; --blush-dark: #8070b8; }
+
 /* Dark mode */
 .dark-mode {
   --cream: #1a1a2e;

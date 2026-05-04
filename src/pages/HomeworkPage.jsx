@@ -18,7 +18,7 @@ const ENCOURAGEMENTS = [
   "Proud of you! 💜", "Crushing it! 🌸",
 ];
 
-function HomeworkPage() {
+function HomeworkPage({ onBack }) {
   const [assignments, setAssignments] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
   const [filter, setFilter] = useState('upcoming');
@@ -112,6 +112,7 @@ function HomeworkPage() {
 
   return (
     <div className="homework-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Homework Planner 📚</h1>
         <p className="page-subtitle">Break it down, plan ahead, get it done</p>

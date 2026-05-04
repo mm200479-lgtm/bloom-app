@@ -1,0 +1,110 @@
+.colorbook-page {
+  padding: 20px 16px;
+}
+
+.pattern-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.pattern-btn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pattern-btn.active {
+  background: var(--lavender);
+  color: var(--lavender-dark);
+  border-color: var(--lavender-dark);
+}
+
+.coloring-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.coloring-row {
+  display: flex;
+  gap: 2px;
+}
+
+.coloring-cell {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.coloring-cell:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.coloring-cell:active {
+  transform: scale(0.95);
+}
+
+.coloring-cell.zone-0 { background: var(--bg-secondary); }
+.coloring-cell.zone-1 { background: #f0eaff; }
+.coloring-cell.zone-2 { background: #e8f4e8; }
+.coloring-cell.zone-3 { background: #fff0f0; }
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.palette-color {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.palette-color.selected {
+  border-color: var(--text-primary);
+  transform: scale(1.2);
+}
+
+.palette-color:hover {
+  transform: scale(1.15);
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

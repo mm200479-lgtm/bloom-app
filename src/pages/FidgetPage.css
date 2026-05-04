@@ -1,0 +1,32 @@
+.fidget-page { padding: 20px 16px; }
+
+.fidget-section { margin-bottom: 24px; }
+
+/* Bubble wrap */
+.bubble-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+.bubble { width: 100%; aspect-ratio: 1; border-radius: 50%; background: linear-gradient(135deg, rgba(167, 139, 250, 0.4), rgba(167, 139, 250, 0.2)); border: 2px solid rgba(167, 139, 250, 0.3); transition: all 0.15s; cursor: pointer; }
+.bubble:active { transform: scale(0.85); }
+.bubble.popped { background: var(--bg-secondary); border-color: transparent; transform: scale(0.7); opacity: 0.4; }
+.bubble-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+.bubble-count { font-size: 12px; color: var(--text-light); font-weight: 600; }
+
+/* Toggle switches */
+.toggle-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.toggle-switch { width: 48px; height: 28px; border-radius: 14px; background: var(--bg-secondary); position: relative; transition: background 0.3s; cursor: pointer; }
+.toggle-switch.on { background: var(--sage); }
+.toggle-knob { position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: white; transition: transform 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); display: block; }
+.toggle-switch.on .toggle-knob { transform: translateX(20px); }
+
+/* Spinner */
+.spinner-container { text-align: center; padding: 20px; cursor: pointer; }
+.spinner { width: 100px; height: 100px; margin: 0 auto; position: relative; }
+.spinner-arm { position: absolute; font-size: 24px; color: var(--lavender-dark); }
+.spinner-arm:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.spinner-arm:nth-child(2) { bottom: 10px; left: 10px; }
+.spinner-arm:nth-child(3) { bottom: 10px; right: 10px; }
+.spinner-hint { font-size: 13px; color: var(--text-light); margin-top: 8px; }
+
+/* Slider */
+.slider-container { position: relative; padding: 10px 0; }
+.fidget-slider { width: 100%; height: 8px; -webkit-appearance: none; appearance: none; background: var(--bg-secondary); border-radius: 4px; outline: none; }
+.fidget-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--lavender-dark); cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }

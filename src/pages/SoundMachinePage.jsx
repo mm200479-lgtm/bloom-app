@@ -79,7 +79,7 @@ function createNoiseGenerator(audioCtx, type) {
   return source;
 }
 
-function SoundMachinePage() {
+function SoundMachinePage({ onBack }) {
   const [playing, setPlaying] = useState(null);
   const [volume, setVolume] = useState(0.5);
   const audioCtxRef = useRef(null);
@@ -142,6 +142,7 @@ function SoundMachinePage() {
 
   return (
     <div className="sound-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Sound Machine</h1>
         <p className="page-subtitle">Background sounds to calm or focus 🎵</p>

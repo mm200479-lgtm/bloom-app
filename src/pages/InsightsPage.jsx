@@ -6,7 +6,7 @@ import './InsightsPage.css';
 const MOOD_EMOJIS = { 1: '😢', 2: '😟', 3: '😐', 4: '🙂', 5: '😊' };
 const MOOD_LABELS = { 1: 'Awful', 2: 'Bad', 3: 'Okay', 4: 'Good', 5: 'Great' };
 
-function InsightsPage() {
+function InsightsPage({ onBack }) {
   const [moods, setMoods] = useState([]);
   const [energy, setEnergy] = useState([]);
   const [sleep, setSleep] = useState([]);
@@ -64,6 +64,7 @@ function InsightsPage() {
 
   return (
     <div className="insights-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Insights 📊</h1>
         <p className="page-subtitle">Patterns help you understand yourself better</p>

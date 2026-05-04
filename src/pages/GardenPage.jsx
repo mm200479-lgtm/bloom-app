@@ -18,7 +18,7 @@ const FLOWERS = [
   { id: 'rainbow', name: 'Rainbow', cost: 40, emoji: '🌈', desc: 'After every storm' },
 ];
 
-function GardenPage() {
+function GardenPage({ onBack }) {
   const [garden, setGarden] = useState(getGarden());
   const [justPlanted, setJustPlanted] = useState(null);
 
@@ -33,6 +33,7 @@ function GardenPage() {
 
   return (
     <div className="garden-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>My Garden 🌸</h1>
         <p className="page-subtitle">Grow flowers with your progress</p>

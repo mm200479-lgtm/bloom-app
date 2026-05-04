@@ -54,7 +54,7 @@ const DEFAULT_SCRIPTS = [
   },
 ];
 
-function ScriptsPage() {
+function ScriptsPage({ onBack }) {
   const [allScripts, setAllScripts] = useState([]);
   const [openCat, setOpenCat] = useState(null);
   const [copied, setCopied] = useState(null);
@@ -100,6 +100,7 @@ function ScriptsPage() {
 
   return (
     <div className="scripts-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Conversation Scripts 💬</h1>
         <p className="page-subtitle">Words are hard sometimes — here are some to borrow</p>

@@ -38,7 +38,7 @@ const CATEGORIES = [
   { key: 'long', label: 'Long (30+ min)', emoji: '🌊', color: '#8ab8d8' },
 ];
 
-function DistractionPage() {
+function DistractionPage({ onBack }) {
   const [box, setBox] = useState({ quick: [], medium: [], long: [] });
   const [random, setRandom] = useState({});
   const [addingTo, setAddingTo] = useState(null);
@@ -76,6 +76,7 @@ function DistractionPage() {
 
   return (
     <div className="distraction-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Distraction Box 📦</h1>
         <p className="page-subtitle">Healthy distractions for when you need a break</p>

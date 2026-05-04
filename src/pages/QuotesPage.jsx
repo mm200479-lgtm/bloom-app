@@ -12,7 +12,7 @@ const STARTER_QUOTES = [
   { text: "Be gentle with yourself. You're doing the best you can.", source: "Unknown" },
 ];
 
-function QuotesPage() {
+function QuotesPage({ onBack }) {
   const [quotes, setQuotes] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
   const [text, setText] = useState('');
@@ -48,6 +48,7 @@ function QuotesPage() {
 
   return (
     <div className="quotes-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Quotes 💬</h1>
         <p className="page-subtitle">Words that remind you of what matters</p>

@@ -12,7 +12,7 @@ const ENCOURAGEMENTS = [
   "Crushing it! 🌸",
 ];
 
-function TasksPage() {
+function TasksPage({ onBack }) {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [celebrating, setCelebrating] = useState(null);
@@ -75,6 +75,7 @@ function TasksPage() {
 
   return (
     <div className="tasks-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>My Tasks</h1>
         <p className="page-subtitle">Break it down, one small thing at a time ✨</p>

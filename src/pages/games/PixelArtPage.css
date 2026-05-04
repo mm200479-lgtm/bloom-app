@@ -1,0 +1,77 @@
+.pixelart-page {
+  padding: 20px 16px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pa-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-items: center;
+  margin-bottom: 16px;
+  touch-action: none;
+}
+
+.pa-row {
+  display: flex;
+  gap: 1px;
+}
+
+.pa-cell {
+  width: 20px;
+  height: 20px;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border);
+  cursor: pointer;
+  transition: background-color 0.05s ease;
+}
+
+.pa-cell:hover {
+  opacity: 0.8;
+}
+
+.pa-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.pa-color {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.pa-color.selected {
+  border-color: var(--text-primary);
+  transform: scale(1.2);
+}
+
+.pa-color:hover {
+  transform: scale(1.1);
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

@@ -4,7 +4,7 @@ import './WorryTimePage.css';
 
 const TOTAL_SECONDS = 15 * 60; // 15 minutes
 
-function WorryTimePage() {
+function WorryTimePage({ onBack }) {
   const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
   const [running, setRunning] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -47,6 +47,7 @@ function WorryTimePage() {
 
   return (
     <div className="worrytime-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Worry Time ⏰</h1>
         <p className="page-subtitle">Give your worries 15 minutes — then let them go</p>

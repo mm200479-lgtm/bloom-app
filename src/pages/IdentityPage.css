@@ -1,0 +1,18 @@
+.identity-page { padding: 20px 16px; }
+
+.identity-input-section { margin-bottom: 12px; }
+.identity-input-row { display: flex; align-items: center; gap: 8px; }
+.identity-prefix { font-size: 16px; font-weight: 700; color: var(--lavender-dark); white-space: nowrap; }
+.identity-input-row .input-field { flex: 1; }
+.identity-input-row .win-add-btn { width: 44px; height: 44px; border-radius: 12px; background: var(--lavender); color: var(--lavender-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.identity-suggest-btn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 20px; background: var(--bg-secondary); font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; }
+
+.identity-suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.suggestion-btn { padding: 8px 14px; border-radius: 20px; background: var(--lavender); font-size: 13px; font-weight: 600; color: var(--lavender-dark); }
+.suggestion-btn:hover { transform: scale(1.03); }
+
+.identity-display { margin-top: 8px; }
+.identity-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.identity-statement { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: linear-gradient(135deg, var(--lavender), var(--blush)); border-radius: 20px; }
+.identity-text { font-size: 14px; font-weight: 700; color: var(--text-primary); }

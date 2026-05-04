@@ -31,7 +31,7 @@ const ENTRY_TYPES = [
   { id: 'worry', label: '📦 Worry dump', desc: 'Get it out of your head' },
 ];
 
-function JournalPage() {
+function JournalPage({ onBack }) {
   const [entries, setEntries] = useState([]);
   const [mode, setMode] = useState(null);
   const [content, setContent] = useState('');
@@ -78,6 +78,7 @@ function JournalPage() {
 
   return (
     <div className="journal-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Journal</h1>
         <p className="page-subtitle">Your private space to think and feel 📝</p>

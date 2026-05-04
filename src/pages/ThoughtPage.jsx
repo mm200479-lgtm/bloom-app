@@ -13,7 +13,7 @@ const STEPS = [
   { key: 'newEmotion', label: 'New Emotion (1-10)', prompt: 'How do you feel now? Rate the intensity again.', placeholder: 'e.g., Calmer', isEmotion: true },
 ];
 
-function ThoughtPage() {
+function ThoughtPage({ onBack }) {
   const [records, setRecords] = useState([]);
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({});
@@ -68,6 +68,7 @@ function ThoughtPage() {
 
   return (
     <div className="thought-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Thought Challenger 🧠</h1>
         <p className="page-subtitle">Challenge the thoughts that aren't serving you</p>

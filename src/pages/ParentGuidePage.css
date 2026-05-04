@@ -1,0 +1,12 @@
+.parent-guide-page { padding: 20px 16px; }
+
+.parent-intro { display: flex; align-items: flex-start; gap: 10px; padding: 16px; margin-bottom: 16px; }
+.parent-intro p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+.parent-section { margin-bottom: 20px; }
+.parent-card { text-align: left; padding: 14px; margin-bottom: 8px; width: 100%; cursor: pointer; }
+.parent-card-header { display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.parent-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--bg-secondary); }
+
+.parent-footer { display: flex; align-items: flex-start; gap: 10px; padding: 16px; }
+.parent-footer p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }

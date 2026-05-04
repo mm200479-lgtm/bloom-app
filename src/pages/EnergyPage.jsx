@@ -11,7 +11,7 @@ const LEVELS = [
   { value: 5, label: 'Full', emoji: '⚡', color: '#8ab8d8', icon: BatteryCharging },
 ];
 
-function EnergyPage() {
+function EnergyPage({ onBack }) {
   const [logs, setLogs] = useState([]);
   const [selected, setSelected] = useState(null);
   const [note, setNote] = useState('');
@@ -43,6 +43,7 @@ function EnergyPage() {
 
   return (
     <div className="energy-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Energy Tracker</h1>
         <p className="page-subtitle">Mood and energy are different — track both 🔋</p>

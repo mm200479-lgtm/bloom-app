@@ -41,7 +41,7 @@ const SECTIONS = [
   },
 ];
 
-function SafetyPage() {
+function SafetyPage({ onBack }) {
   const [plan, setPlan] = useState(getSafetyPlan());
   const [editingSection, setEditingSection] = useState(null);
   const [newItem, setNewItem] = useState('');
@@ -62,6 +62,7 @@ function SafetyPage() {
 
   return (
     <div className="safety-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>My Safety Plan</h1>
         <p className="page-subtitle">Your personal toolkit for tough moments 🛡️</p>

@@ -11,7 +11,7 @@ const QUESTIONS = [
   { key: 'nextTime', label: 'What will I try next time?', placeholder: 'What could I do differently?' },
 ];
 
-function DebriefPage() {
+function DebriefPage({ onBack }) {
   const [debriefs, setDebriefs] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({});
@@ -33,6 +33,7 @@ function DebriefPage() {
 
   return (
     <div className="debrief-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>After-Crisis Debrief 🛡️</h1>
         <p className="page-subtitle">Processing what happened helps you heal and prepare</p>

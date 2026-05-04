@@ -16,7 +16,7 @@ const REGIONS = [
 
 const EMOTIONS = ['Tension', 'Pain', 'Anxiety', 'Warmth', 'Numbness', 'Heaviness', 'Tingling', 'Tightness', 'Nausea', 'Calm'];
 
-function BodyMapPage() {
+function BodyMapPage({ onBack }) {
   const [entries, setEntries] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [selectedEmotion, setSelectedEmotion] = useState('');
@@ -46,6 +46,7 @@ function BodyMapPage() {
 
   return (
     <div className="bodymap-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Body Map 🫀</h1>
         <p className="page-subtitle">Where do you feel your emotions? Tap to explore.</p>

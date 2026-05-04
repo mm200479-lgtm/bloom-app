@@ -1,0 +1,23 @@
+.study-page { padding: 20px 16px; }
+
+.pomodoro-card { text-align: center; padding: 20px; margin-bottom: 16px; }
+.pomodoro-time { font-size: 48px; font-weight: 800; color: var(--text-primary); display: block; margin: 12px 0; font-variant-numeric: tabular-nums; }
+.pomodoro-controls { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
+
+.pomodoro-quick { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.pomodoro-quick-btn { display: flex; align-items: center; gap: 4px; padding: 8px 12px; border-radius: 20px; background: var(--bg-secondary); font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.pomodoro-quick-btn:hover { background: var(--lavender); }
+
+.study-form { padding: 14px; margin-bottom: 16px; }
+.study-form .input-field { margin-bottom: 8px; }
+.study-form .form-actions { display: flex; gap: 8px; margin-top: 8px; }
+.study-form-row { display: flex; gap: 10px; }
+.study-label { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+
+.study-section { margin-bottom: 16px; }
+.study-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 6px; }
+.study-item.done { opacity: 0.5; }
+.study-item.done .study-subject { text-decoration: line-through; }
+.study-info { flex: 1; }
+.study-subject { display: block; font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.study-meta { font-size: 11px; color: var(--text-light); }

@@ -83,6 +83,9 @@ const CATEGORIES = [
       { id: 'worrytime', emoji: '⏰', label: 'Worry Time' },
       { id: 'distraction', emoji: '📦', label: 'Distraction Box' },
       { id: 'sensory', emoji: '✋', label: 'Sensory Kit' },
+      { id: 'fidget', emoji: '🫧', label: 'Fidget Tools' },
+      { id: 'colortherapy', emoji: '🎨', label: 'Color Therapy' },
+      { id: 'breathbubble', emoji: '🫧', label: 'Breathing Bubble' },
     ]
   },
   {
@@ -92,6 +95,9 @@ const CATEGORIES = [
       { id: 'safety', emoji: '🛡️', label: 'Safety Plan' },
       { id: 'debrief', emoji: '📋', label: 'Crisis Debrief' },
       { id: 'scripts', emoji: '💬', label: 'Conversation Scripts' },
+      { id: 'emergency', emoji: '🚨', label: 'Emergency' },
+      { id: 'safepeople', emoji: '🤝', label: 'Safe People' },
+      { id: 'badday', emoji: '🩹', label: 'Bad Day Kit' },
     ]
   },
   {
@@ -105,6 +111,8 @@ const CATEGORIES = [
       { id: 'tasks', emoji: '✨', label: 'Tasks' },
       { id: 'appointments', emoji: '📅', label: 'Appointments' },
       { id: 'meds', emoji: '💊', label: 'Medications' },
+      { id: 'studyplanner', emoji: '📖', label: 'Study Planner' },
+      { id: 'testanxiety', emoji: '📝', label: 'Test Anxiety' },
     ]
   },
   {
@@ -114,6 +122,18 @@ const CATEGORIES = [
       { id: 'selfcare', emoji: '💧', label: 'Water/Meals/Move' },
       { id: 'activity', emoji: '💡', label: 'Activity Ideas' },
       { id: 'rewardmenu', emoji: '🎁', label: 'Reward Menu' },
+      { id: 'compliment', emoji: '💌', label: 'Compliment Jar' },
+    ]
+  },
+  {
+    id: 'selfdiscovery', title: 'Self-Discovery', emoji: '🪞', color: '#e8d8f0',
+    desc: 'Know yourself better',
+    items: [
+      { id: 'values', emoji: '💎', label: 'Values' },
+      { id: 'strengths', emoji: '🌟', label: 'Strengths' },
+      { id: 'identity', emoji: '🪞', label: 'Identity' },
+      { id: 'boundaries', emoji: '🚧', label: 'Boundaries' },
+      { id: 'affirmations', emoji: '💜', label: 'Affirmations' },
     ]
   },
   {
@@ -125,6 +145,25 @@ const CATEGORIES = [
       { id: 'bucketlist', emoji: '✨', label: 'Bucket List' },
       { id: 'playlists', emoji: '🎧', label: 'Playlists' },
       { id: 'learn', emoji: '📖', label: 'Learn About It' },
+      { id: 'comfortmedia', emoji: '🎬', label: 'Comfort Media' },
+      { id: 'timecapsule', emoji: '💊', label: 'Time Capsule' },
+      { id: 'stickerboard', emoji: '⭐', label: 'Sticker Board' },
+    ]
+  },
+  {
+    id: 'games', title: 'Games', emoji: '🎮', color: '#d8e8f0',
+    desc: 'Gentle fun & play',
+    items: [
+      { id: 'games', emoji: '🎮', label: 'Games Hub' },
+    ]
+  },
+  {
+    id: 'reports', title: 'Reports', emoji: '📋', color: '#e0e8d8',
+    desc: 'Share & review progress',
+    items: [
+      { id: 'report', emoji: '📊', label: 'Therapist Report' },
+      { id: 'parentguide', emoji: '👨‍👩‍👧', label: 'Parent Guide' },
+      { id: 'holidaysurvival', emoji: '🎄', label: 'Holiday Survival' },
     ]
   },
 ];
@@ -215,6 +254,24 @@ function HomePage({ onNavigate, profile }) {
           </div>
         </section>
       )}
+
+      {/* Daily Check-in button */}
+      <button
+        className="quick-btn"
+        style={{ background: 'var(--sage)', width: '100%', flexDirection: 'row', justifyContent: 'center', gap: '8px', marginBottom: '14px' }}
+        onClick={() => onNavigate('dailycheckin')}
+      >
+        <span>🌅</span><span>Daily Check-in</span>
+      </button>
+
+      {/* Emergency button */}
+      <button
+        className="quick-btn"
+        style={{ background: '#f0d0d0', width: '100%', flexDirection: 'row', justifyContent: 'center', gap: '8px', marginBottom: '14px' }}
+        onClick={() => onNavigate('emergency')}
+      >
+        <span>🚨</span><span>Emergency — I need help now</span>
+      </button>
 
       {/* Category tiles */}
       <section className="categories-section">

@@ -29,7 +29,7 @@ const EMOTIONS = {
   },
 };
 
-function EmotionWheelPage() {
+function EmotionWheelPage({ onBack }) {
   const [selected, setSelected] = useState(null);
   const [deeper, setDeeper] = useState(null);
   const [saved, setSaved] = useState(false);
@@ -66,6 +66,7 @@ function EmotionWheelPage() {
 
   return (
     <div className="emotion-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Emotion Wheel</h1>
         <p className="page-subtitle">Sometimes "fine" isn't specific enough 🎯</p>

@@ -1,0 +1,111 @@
+.emojistory-page {
+  padding: 20px 16px;
+}
+
+.es-emojis {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.es-emoji {
+  font-size: 48px;
+  animation: emojiPop 0.3s ease;
+}
+
+@keyframes emojiPop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.es-shuffle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background 0.2s ease;
+}
+
+.es-shuffle:hover {
+  background: var(--lavender);
+}
+
+.es-textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.es-save-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.es-save-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.es-saved {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-bottom: 12px;
+}
+
+.es-stories {
+  margin-top: 16px;
+}
+
+.es-story-card {
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.es-story-emojis {
+  display: flex;
+  gap: 6px;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.es-story-text {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.es-story-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.es-story-date {
+  font-size: 11px;
+  color: var(--text-light);
+}

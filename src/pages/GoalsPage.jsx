@@ -3,7 +3,7 @@ import { Plus, Check, Trash2, Target, Trophy, ChevronDown, ChevronUp, Sparkles }
 import { getGoals, saveGoals, addPetals } from '../utils/storage';
 import './GoalsPage.css';
 
-function GoalsPage() {
+function GoalsPage({ onBack }) {
   const [goals, setGoals] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
   const [celebrating, setCelebrating] = useState(null);
@@ -88,6 +88,7 @@ function GoalsPage() {
 
   return (
     <div className="goals-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Goal Tracker 🎯</h1>
         <p className="page-subtitle">Dream big, start small, keep going</p>

@@ -10,7 +10,7 @@ const PRESETS = [
   { label: '10 min sprint', work: 10, break: 3, emoji: '⚡' },
 ];
 
-function PomodoroPage() {
+function PomodoroPage({ onBack }) {
   const [preset, setPreset] = useState(PRESETS[0]);
   const [timeLeft, setTimeLeft] = useState(PRESETS[0].work * 60);
   const [isRunning, setIsRunning] = useState(false);
@@ -61,6 +61,7 @@ function PomodoroPage() {
 
   return (
     <div className="pomodoro-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Focus Timer</h1>
         <p className="page-subtitle">Short bursts work best for ADHD brains 🍅</p>

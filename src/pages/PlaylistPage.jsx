@@ -12,7 +12,7 @@ const MOOD_CATEGORIES = [
   { value: 'sleep', label: 'Sleep', emoji: '🌙' },
 ];
 
-function PlaylistPage() {
+function PlaylistPage({ onBack }) {
   const [playlists, setPlaylists] = useState([]);
   const [showCreate, setShowCreate] = useState(false);
   const [name, setName] = useState('');
@@ -66,6 +66,7 @@ function PlaylistPage() {
 
   return (
     <div className="playlist-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Playlists 🎵</h1>
         <p className="page-subtitle">Music for every mood — build your collections</p>

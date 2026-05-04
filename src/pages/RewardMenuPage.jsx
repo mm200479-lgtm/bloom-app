@@ -9,7 +9,7 @@ const CATEGORIES = [
   { value: 'treat', label: 'Treat yourself', emoji: '🎁' },
 ];
 
-function RewardMenuPage() {
+function RewardMenuPage({ onBack }) {
   const [rewards, setRewards] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
   const [text, setText] = useState('');
@@ -41,6 +41,7 @@ function RewardMenuPage() {
 
   return (
     <div className="reward-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Reward Menu 🎁</h1>
         <p className="page-subtitle">You deserve good things — build your reward list</p>

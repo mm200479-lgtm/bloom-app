@@ -52,6 +52,46 @@ import PlaylistPage from './pages/PlaylistPage';
 import SensoryPage from './pages/SensoryPage';
 import AchievementsPage from './pages/AchievementsPage';
 import InsightsPage from './pages/InsightsPage';
+// New pages
+import DailyCheckinPage from './pages/DailyCheckinPage';
+import EmergencyPage from './pages/EmergencyPage';
+import TherapistReportPage from './pages/TherapistReportPage';
+import CustomAffirmationsPage from './pages/CustomAffirmationsPage';
+import ComfortMediaPage from './pages/ComfortMediaPage';
+import SafePeoplePage from './pages/SafePeoplePage';
+import ValuesPage from './pages/ValuesPage';
+import StrengthsPage from './pages/StrengthsPage';
+import IdentityPage from './pages/IdentityPage';
+import BoundariesPage from './pages/BoundariesPage';
+import TimeCapsulePage from './pages/TimeCapsulePage';
+import BadDayPage from './pages/BadDayPage';
+import FidgetPage from './pages/FidgetPage';
+import ColorTherapyPage from './pages/ColorTherapyPage';
+import TestAnxietyPage from './pages/TestAnxietyPage';
+import StudyPlannerPage from './pages/StudyPlannerPage';
+import StickerBoardPage from './pages/StickerBoardPage';
+import ParentGuidePage from './pages/ParentGuidePage';
+import HolidaySurvivalPage from './pages/HolidaySurvivalPage';
+import ComplimentPage from './pages/ComplimentPage';
+// Game pages
+import GamesHubPage from './pages/games/GamesHubPage';
+import ColorBookPage from './pages/games/ColorBookPage';
+import DotsBoxesPage from './pages/games/DotsBoxesPage';
+import BreathBubblePage from './pages/games/BreathBubblePage';
+import WordSearchPage from './pages/games/WordSearchPage';
+import TapStarsPage from './pages/games/TapStarsPage';
+import MemoryMatchPage from './pages/games/MemoryMatchPage';
+import ZenGardenPage from './pages/games/ZenGardenPage';
+import BubblePopPage from './pages/games/BubblePopPage';
+import ColorFloodPage from './pages/games/ColorFloodPage';
+import JigsawPage from './pages/games/JigsawPage';
+import DoodlePadPage from './pages/games/DoodlePadPage';
+import FirefliesPage from './pages/games/FirefliesPage';
+import GratitudeBingoPage from './pages/games/GratitudeBingoPage';
+import EmojiStoryPage from './pages/games/EmojiStoryPage';
+import PixelArtPage from './pages/games/PixelArtPage';
+import RainWindowPage from './pages/games/RainWindowPage';
+import StackBlocksPage from './pages/games/StackBlocksPage';
 import './App.css';
 
 const TABS = [
@@ -100,27 +140,99 @@ function App() {
 
   if (!profile) return <ProfilePage onProfileSelected={handleProfileSelected} firebaseUser={firebaseUser} />;
 
+  const back = () => nav('home');
+
   const PAGE_MAP = {
+    // Special pages
     home: <HomePage onNavigate={nav} profile={profile} syncing={syncing} firebaseUser={firebaseUser} />,
-    mood: <MoodPage />, tasks: <TasksPage />, journal: <JournalPage />,
-    grounding: <GroundingPage />, safety: <SafetyPage />, routines: <RoutinePage />,
-    pomodoro: <PomodoroPage />, coping: <CopingCardsPage />, emotions: <EmotionWheelPage />,
-    sounds: <SoundMachinePage />, triggers: <TriggerPage />, activity: <ActivityPage />,
-    photos: <PhotoJournalPage />, energy: <EnergyPage />, wins: <WinJarPage />,
-    garden: <GardenPage />,
     settings: <SettingsPage onSettingsChange={setSettings} onSwitchProfile={() => { setProfile(null); setActiveTab('home'); }} profile={profile} firebaseUser={firebaseUser} />,
     more: <MorePage onNavigate={nav} profile={profile} />,
-    sleep: <SleepPage />, meds: <MedsPage />, homework: <HomeworkPage />,
-    goals: <GoalsPage />, letters: <LettersPage />, period: <PeriodPage />,
-    dbt: <DBTPage />, learn: <LearnPage />, selfcare: <SelfCarePage />,
-    social: <SocialBatteryPage />, scripts: <ScriptsPage />, thought: <ThoughtPage />,
-    nightmares: <NightmarePage />, braindump: <BrainDumpPage />,
-    appointments: <AppointmentsPage />, quotes: <QuotesPage />,
-    bucketlist: <BucketListPage />, distraction: <DistractionPage />,
-    bodymap: <BodyMapPage />, debrief: <DebriefPage />, angry: <AngryPage />,
-    worrytime: <WorryTimePage />, urgesurf: <UrgeSurfPage />, dreams: <DreamPage />,
-    rewardmenu: <RewardMenuPage />, playlists: <PlaylistPage />,
-    sensory: <SensoryPage />, achievements: <AchievementsPage />, insights: <InsightsPage />,
+    // Existing pages
+    mood: <MoodPage onBack={back} />,
+    tasks: <TasksPage onBack={back} />,
+    journal: <JournalPage onBack={back} />,
+    grounding: <GroundingPage onBack={back} />,
+    safety: <SafetyPage onBack={back} />,
+    routines: <RoutinePage onBack={back} />,
+    pomodoro: <PomodoroPage onBack={back} />,
+    coping: <CopingCardsPage onBack={back} />,
+    emotions: <EmotionWheelPage onBack={back} />,
+    sounds: <SoundMachinePage onBack={back} />,
+    triggers: <TriggerPage onBack={back} />,
+    activity: <ActivityPage onBack={back} />,
+    photos: <PhotoJournalPage onBack={back} />,
+    energy: <EnergyPage onBack={back} />,
+    wins: <WinJarPage onBack={back} />,
+    garden: <GardenPage onBack={back} />,
+    sleep: <SleepPage onBack={back} />,
+    meds: <MedsPage onBack={back} />,
+    homework: <HomeworkPage onBack={back} />,
+    goals: <GoalsPage onBack={back} />,
+    letters: <LettersPage onBack={back} />,
+    period: <PeriodPage onBack={back} />,
+    dbt: <DBTPage onBack={back} />,
+    learn: <LearnPage onBack={back} />,
+    selfcare: <SelfCarePage onBack={back} />,
+    social: <SocialBatteryPage onBack={back} />,
+    scripts: <ScriptsPage onBack={back} />,
+    thought: <ThoughtPage onBack={back} />,
+    nightmares: <NightmarePage onBack={back} />,
+    braindump: <BrainDumpPage onBack={back} />,
+    appointments: <AppointmentsPage onBack={back} />,
+    quotes: <QuotesPage onBack={back} />,
+    bucketlist: <BucketListPage onBack={back} />,
+    distraction: <DistractionPage onBack={back} />,
+    bodymap: <BodyMapPage onBack={back} />,
+    debrief: <DebriefPage onBack={back} />,
+    angry: <AngryPage onBack={back} />,
+    worrytime: <WorryTimePage onBack={back} />,
+    urgesurf: <UrgeSurfPage onBack={back} />,
+    dreams: <DreamPage onBack={back} />,
+    rewardmenu: <RewardMenuPage onBack={back} />,
+    playlists: <PlaylistPage onBack={back} />,
+    sensory: <SensoryPage onBack={back} />,
+    achievements: <AchievementsPage onBack={back} />,
+    insights: <InsightsPage onBack={back} />,
+    // New pages
+    dailycheckin: <DailyCheckinPage onBack={back} />,
+    emergency: <EmergencyPage onBack={back} />,
+    report: <TherapistReportPage onBack={back} />,
+    affirmations: <CustomAffirmationsPage onBack={back} />,
+    comfortmedia: <ComfortMediaPage onBack={back} />,
+    safepeople: <SafePeoplePage onBack={back} />,
+    values: <ValuesPage onBack={back} />,
+    strengths: <StrengthsPage onBack={back} />,
+    identity: <IdentityPage onBack={back} />,
+    boundaries: <BoundariesPage onBack={back} />,
+    timecapsule: <TimeCapsulePage onBack={back} />,
+    badday: <BadDayPage onBack={back} />,
+    fidget: <FidgetPage onBack={back} />,
+    colortherapy: <ColorTherapyPage onBack={back} />,
+    testanxiety: <TestAnxietyPage onBack={back} />,
+    studyplanner: <StudyPlannerPage onBack={back} />,
+    stickerboard: <StickerBoardPage onBack={back} />,
+    parentguide: <ParentGuidePage onBack={back} />,
+    holidaysurvival: <HolidaySurvivalPage onBack={back} />,
+    compliment: <ComplimentPage onBack={back} />,
+    // Game pages
+    games: <GamesHubPage onNavigate={nav} onBack={back} />,
+    colorbook: <ColorBookPage onBack={back} />,
+    dotsboxes: <DotsBoxesPage onBack={back} />,
+    breathbubble: <BreathBubblePage onBack={back} />,
+    wordsearch: <WordSearchPage onBack={back} />,
+    tapstars: <TapStarsPage onBack={back} />,
+    memorymatch: <MemoryMatchPage onBack={back} />,
+    zengarden: <ZenGardenPage onBack={back} />,
+    bubblepop: <BubblePopPage onBack={back} />,
+    colorflood: <ColorFloodPage onBack={back} />,
+    jigsaw: <JigsawPage onBack={back} />,
+    doodlepad: <DoodlePadPage onBack={back} />,
+    fireflies: <FirefliesPage onBack={back} />,
+    gratitudebingo: <GratitudeBingoPage onBack={back} />,
+    emojistory: <EmojiStoryPage onBack={back} />,
+    pixelart: <PixelArtPage onBack={back} />,
+    rainwindow: <RainWindowPage onBack={back} />,
+    stackblocks: <StackBlocksPage onBack={back} />,
   };
 
   return (

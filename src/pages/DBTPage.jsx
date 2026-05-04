@@ -149,7 +149,7 @@ const SECTIONS = [
   },
 ];
 
-function DBTPage() {
+function DBTPage({ onBack }) {
   const [openSection, setOpenSection] = useState(null);
   const [openSkill, setOpenSkill] = useState(null);
 
@@ -158,6 +158,7 @@ function DBTPage() {
 
   return (
     <div className="dbt-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>DBT Skills 🧠</h1>
         <p className="page-subtitle">Real tools for real tough moments — you've got this</p>

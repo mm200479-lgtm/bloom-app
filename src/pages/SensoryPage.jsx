@@ -26,7 +26,7 @@ const SENSES = [
   },
 ];
 
-function SensoryPage() {
+function SensoryPage({ onBack }) {
   const [kit, setKit] = useState([]);
   const [addingTo, setAddingTo] = useState(null);
   const [newItem, setNewItem] = useState('');
@@ -70,6 +70,7 @@ function SensoryPage() {
 
   return (
     <div className="sensory-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Sensory Kit 🧘</h1>
         <p className="page-subtitle">What helps ground you? Build your personal toolkit.</p>

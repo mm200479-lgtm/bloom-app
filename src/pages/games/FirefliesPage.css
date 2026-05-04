@@ -1,0 +1,82 @@
+.fireflies-page {
+  padding: 20px 16px;
+}
+
+.ff-jar {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.ff-sky {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: linear-gradient(180deg, #0a0a2e 0%, #1a1a4e 40%, #2a2a5e 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.ff-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 30% 25%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 70% 35%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 85% 20%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 20% 60%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 90% 55%, rgba(255,255,255,0.2), transparent);
+  pointer-events: none;
+}
+
+.ff-fly {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffaa, #ffee66, transparent);
+  border: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px 4px rgba(255, 255, 150, 0.4);
+  animation: fireflyGlow 2s ease-in-out infinite alternate;
+  padding: 0;
+  z-index: 2;
+}
+
+.ff-fly:hover {
+  box-shadow: 0 0 12px 6px rgba(255, 255, 150, 0.6);
+}
+
+@keyframes fireflyGlow {
+  0% { opacity: 0.4; box-shadow: 0 0 4px 2px rgba(255, 255, 150, 0.2); }
+  100% { opacity: 1; box-shadow: 0 0 12px 6px rgba(255, 255, 150, 0.5); }
+}
+
+.ff-catch {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  pointer-events: none;
+  animation: catchSparkle 0.5s ease forwards;
+  z-index: 3;
+}
+
+@keyframes catchSparkle {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(2) translateY(-20px); }
+}
+
+.ff-encouragement {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+}

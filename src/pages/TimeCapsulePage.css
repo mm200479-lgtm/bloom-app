@@ -1,0 +1,21 @@
+.capsule-page { padding: 20px 16px; }
+
+.capsule-form { padding: 14px; margin-bottom: 16px; }
+.capsule-form .input-field { margin-bottom: 8px; }
+.capsule-form .form-actions { display: flex; gap: 8px; }
+
+.duration-picker { display: flex; gap: 8px; margin-top: 4px; }
+.duration-btn { padding: 8px 14px; border-radius: 20px; background: var(--bg-secondary); font-size: 13px; font-weight: 600; }
+.duration-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.capsules-list { display: flex; flex-direction: column; gap: 10px; }
+.capsule-card { padding: 14px; }
+.capsule-card.locked { opacity: 0.7; }
+.capsule-header { display: flex; align-items: flex-start; gap: 10px; }
+.capsule-date { display: block; font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.capsule-countdown { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-light); margin-top: 2px; }
+
+.capsule-contents { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--bg-secondary); }
+.capsule-contents p { font-size: 13px; color: var(--text-primary); margin-bottom: 6px; line-height: 1.5; }
+
+.capsule-locked-msg { font-size: 12px; color: var(--text-light); margin-top: 8px; text-align: center; }

@@ -19,7 +19,7 @@ const DEFAULT_EVENING = [
   'Deep breaths in bed 🌙',
 ];
 
-function RoutinePage() {
+function RoutinePage({ onBack }) {
   const [routines, setRoutines] = useState(getRoutines());
   const [adding, setAdding] = useState(null);
   const [newItem, setNewItem] = useState('');
@@ -138,6 +138,7 @@ function RoutinePage() {
 
   return (
     <div className="routine-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>My Routines</h1>
         <p className="page-subtitle">Small consistent steps build big change 🌱</p>

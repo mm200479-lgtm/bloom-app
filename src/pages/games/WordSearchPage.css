@@ -1,0 +1,106 @@
+.wordsearch-page {
+  padding: 20px 16px;
+}
+
+.ws-word-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.ws-word {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.ws-word.found {
+  background: var(--sage);
+  color: var(--sage-dark);
+  text-decoration: line-through;
+}
+
+.ws-complete {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ws-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ws-row {
+  display: flex;
+  gap: 2px;
+}
+
+.ws-cell {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ws-cell:hover {
+  background: var(--lavender);
+}
+
+.ws-cell.selected {
+  background: var(--lavender);
+  color: var(--lavender-dark);
+  transform: scale(1.05);
+}
+
+.ws-cell.found {
+  background: var(--sage);
+  color: var(--sage-dark);
+}
+
+.ws-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ws-actions .clear-btn {
+  flex: 1;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

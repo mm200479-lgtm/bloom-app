@@ -11,6 +11,13 @@ const COLOR_SCHEMES = [
   { id: 'sunset', label: 'Sunset', colors: ['#f5ddd0', '#e8a080'] },
   { id: 'forest', label: 'Forest', colors: ['#d0e8d0', '#6aaa6a'] },
   { id: 'berry', label: 'Berry', colors: ['#e8d0e8', '#b868b8'] },
+  { id: 'rosegold', label: 'Rose Gold', colors: ['#f5ddd5', '#d4a08a'] },
+  { id: 'midnight', label: 'Midnight', colors: ['#d0d8f5', '#6878b8'] },
+  { id: 'cottoncandy', label: 'Cotton Candy', colors: ['#f0d8f0', '#c890c8'] },
+  { id: 'sageHoney', label: 'Sage & Honey', colors: ['#e0e8d0', '#8aa060'] },
+  { id: 'peach', label: 'Peach', colors: ['#f8e0d0', '#d89870'] },
+  { id: 'cloud', label: 'Cloud', colors: ['#e8ecf0', '#8898b0'] },
+  { id: 'aurora', label: 'Aurora', colors: ['#d0e8e8', '#50a0a0'] },
 ];
 
 const AVATARS = ['🌸', '🌊', '🦋', '🌙', '⭐', '🌈', '🔥', '🍀', '🎵', '💜', '🌻', '🐱', '🐶', '🦊', '🐰', '🎨'];

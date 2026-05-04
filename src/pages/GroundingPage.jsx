@@ -89,7 +89,7 @@ const SAFE_PLACE_STEPS = [
   'When you\'re ready, slowly open your eyes. You can come back anytime. 🏡',
 ];
 
-function GroundingPage() {
+function GroundingPage({ onBack }) {
   const [activeExercise, setActiveExercise] = useState(null);
   const [breathPhase, setBreathPhase] = useState(0);
   const [breathTimer, setBreathTimer] = useState(4);
@@ -261,6 +261,7 @@ function GroundingPage() {
 
   return (
     <div className="grounding-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Calm Corner</h1>
         <p className="page-subtitle">Tools to help you feel grounded and safe 🌊</p>

@@ -3,7 +3,7 @@ import { Plus, Trash2, Shuffle, Trophy } from 'lucide-react';
 import { getWins, addWin, deleteWin, addPetals } from '../utils/storage';
 import './WinJarPage.css';
 
-function WinJarPage() {
+function WinJarPage({ onBack }) {
   const [wins, setWins] = useState([]);
   const [newWin, setNewWin] = useState('');
   const [randomWin, setRandomWin] = useState(null);
@@ -33,6 +33,7 @@ function WinJarPage() {
 
   return (
     <div className="win-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Win Jar 🏆</h1>
         <p className="page-subtitle">Save your victories — scroll through on bad days</p>

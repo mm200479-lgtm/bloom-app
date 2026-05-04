@@ -1,0 +1,97 @@
+.gratitudebingo-page {
+  padding: 20px 16px;
+}
+
+.gb-progress {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.gb-bingo {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.gb-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.gb-cell {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.gb-cell:hover {
+  background: var(--lavender);
+}
+
+.gb-cell.marked {
+  background: var(--sage);
+  border-color: var(--sage-dark);
+}
+
+.gb-cell.bingo {
+  background: var(--lavender);
+  border-color: var(--lavender-dark);
+  animation: bingoPulse 0.5s ease;
+}
+
+@keyframes bingoPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.gb-cell-text {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.gb-check {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 10px;
+  color: var(--sage-dark);
+  font-weight: 800;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

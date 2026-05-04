@@ -1,0 +1,22 @@
+.sticker-page { padding: 20px 16px; }
+
+.sticker-palette { margin-bottom: 16px; }
+.sticker-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.sticker-pick { width: 44px; height: 44px; border-radius: 12px; background: var(--bg-secondary); font-size: 22px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.sticker-pick.selected { background: var(--lavender); transform: scale(1.15); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.sticker-hint { font-size: 13px; font-weight: 600; color: var(--lavender-dark); margin-top: 8px; animation: pulse 1s ease infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+.sticker-board { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin-bottom: 8px; }
+.board-cell { aspect-ratio: 1; border-radius: 8px; background: var(--bg-secondary); border: 2px dashed transparent; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.board-cell.placeable { border-color: var(--lavender); cursor: pointer; }
+.board-cell.placeable:hover { background: var(--lavender); }
+.board-cell.has-sticker { background: var(--bg-secondary); border-color: transparent; }
+
+.sticker-achievements { margin-top: 20px; }
+.sticker-achievement-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
+.sticker-achievement { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 12px 8px; background: var(--bg-secondary); border-radius: 12px; }
+.sticker-achievement.locked { opacity: 0.35; filter: grayscale(1); }
+.sticker-ach-emoji { font-size: 24px; margin-bottom: 4px; }
+.sticker-ach-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+.sticker-ach-desc { font-size: 10px; color: var(--text-light); margin-top: 2px; }

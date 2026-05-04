@@ -1,0 +1,10 @@
+.test-anxiety-page { padding: 20px 16px; }
+
+.anxiety-section { margin-bottom: 20px; }
+.anxiety-section-title { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 800; color: var(--text-primary); margin-bottom: 10px; }
+
+.anxiety-cards { display: flex; flex-direction: column; gap: 8px; }
+.anxiety-card { text-align: left; padding: 14px; cursor: pointer; width: 100%; }
+.anxiety-card-header { display: flex; align-items: center; justify-content: space-between; }
+.anxiety-card-title { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.anxiety-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--bg-secondary); }

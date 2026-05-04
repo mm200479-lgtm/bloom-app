@@ -1,0 +1,19 @@
+.comfort-media-page { padding: 20px 16px; }
+
+.comfort-form { padding: 14px; margin-bottom: 16px; }
+.comfort-form .input-field { margin-bottom: 8px; }
+.comfort-form .form-actions { display: flex; gap: 8px; margin-top: 8px; }
+
+.comfort-categories { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.cat-btn { padding: 6px 12px; border-radius: 20px; background: var(--bg-secondary); font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.cat-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.comfort-filters { display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
+.filter-btn { padding: 6px 12px; border-radius: 20px; background: var(--bg-secondary); font-size: 12px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
+.filter-btn.active { background: var(--lavender); color: var(--lavender-dark); }
+
+.comfort-group { margin-bottom: 16px; }
+.comfort-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 6px; }
+.comfort-content { display: flex; flex-direction: column; flex: 1; }
+.comfort-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.comfort-note { font-size: 11px; color: var(--text-light); margin-top: 2px; }

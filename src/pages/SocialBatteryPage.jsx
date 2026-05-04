@@ -24,7 +24,7 @@ const RECHARGE_TIPS = [
   '🚶 Go for a solo walk',
 ];
 
-function SocialBatteryPage() {
+function SocialBatteryPage({ onBack }) {
   const [entries, setEntries] = useState([]);
   const [selected, setSelected] = useState(null);
   const [note, setNote] = useState('');
@@ -46,6 +46,7 @@ function SocialBatteryPage() {
 
   return (
     <div className="social-battery-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Social Battery 🔋</h1>
         <p className="page-subtitle">It's okay to need alone time to recharge</p>

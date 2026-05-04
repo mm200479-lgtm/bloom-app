@@ -1,0 +1,17 @@
+.strengths-page { padding: 20px 16px; }
+
+.strength-reminder { text-align: center; padding: 20px; margin-bottom: 16px; }
+.strength-reminder-emoji { font-size: 36px; display: block; margin: 8px 0; }
+.strength-reminder-text { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.strength-reminder-sub { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+.strengths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+.strength-btn { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 6px; border-radius: 14px; background: var(--bg-secondary); transition: all 0.2s; }
+.strength-btn.selected { background: var(--lavender); transform: scale(1.03); }
+.strength-emoji { font-size: 24px; }
+.strength-name { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+.strength-check { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--sage); color: white; display: flex; align-items: center; justify-content: center; }
+
+.strengths-summary { padding: 14px; }
+.strengths-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.strength-tag { padding: 6px 12px; background: var(--lavender); border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--lavender-dark); }

@@ -1,0 +1,15 @@
+.compliment-page { padding: 20px 16px; display: flex; flex-direction: column; min-height: calc(100vh - 120px); }
+
+.compliment-display { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 250px; }
+
+.compliment-card { text-align: center; padding: 30px 24px; background: linear-gradient(135deg, var(--lavender), var(--blush)); border-radius: 20px; max-width: 320px; width: 100%; }
+.compliment-text { font-size: 22px; font-weight: 800; color: var(--text-primary); line-height: 1.4; margin: 16px 0; }
+.compliment-heart { font-size: 28px; }
+
+.compliment-placeholder { text-align: center; }
+.compliment-placeholder p { font-size: 14px; color: var(--text-light); margin-top: 12px; }
+
+.compliment-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 16px; border-radius: 14px; background: linear-gradient(135deg, var(--lavender), var(--blush)); font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; transition: transform 0.2s; }
+.compliment-btn:active { transform: scale(0.97); }
+
+.compliment-footer { text-align: center; font-size: 13px; color: var(--text-light); padding-bottom: 20px; }

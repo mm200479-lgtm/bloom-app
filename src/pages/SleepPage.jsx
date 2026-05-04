@@ -14,7 +14,7 @@ const TIPS = [
   "Listening to rain sounds or white noise can help 🌧️",
 ];
 
-function SleepPage() {
+function SleepPage({ onBack }) {
   const [logs, setLogs] = useState([]);
   const [bedtime, setBedtime] = useState('22:00');
   const [wakeTime, setWakeTime] = useState('07:00');
@@ -60,6 +60,7 @@ function SleepPage() {
 
   return (
     <div className="sleep-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Sleep Tracker 🌙</h1>
         <p className="page-subtitle">Rest is productive — your body and brain need it</p>

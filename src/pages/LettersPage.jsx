@@ -20,7 +20,7 @@ const LETTER_TYPES = [
   { key: 'open-when', label: 'Open when...', emoji: '💌', description: 'Letters for specific feelings' },
 ];
 
-function LettersPage() {
+function LettersPage({ onBack }) {
   const [letters, setLetters] = useState([]);
   const [view, setView] = useState('home'); // home, write, read
   const [letterType, setLetterType] = useState(null);
@@ -193,6 +193,7 @@ function LettersPage() {
   // Home view
   return (
     <div className="letters-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Letters to Myself 💌</h1>
         <p className="page-subtitle">Words of kindness from you, for you</p>

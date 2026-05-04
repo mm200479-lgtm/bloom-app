@@ -11,7 +11,7 @@ const MEALS = [
   { key: 'snack', label: 'Snack', emoji: '🍎' },
 ];
 
-function SelfCarePage() {
+function SelfCarePage({ onBack }) {
   const today = new Date().toDateString();
   const [water, setWater] = useState({ date: null, cups: 0, goal: 8, history: [] });
   const [meals, setMeals] = useState({ date: null, meals: {}, history: [] });
@@ -82,6 +82,7 @@ function SelfCarePage() {
 
   return (
     <div className="selfcare-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Self-Care Check 💛</h1>
         <p className="page-subtitle">Basic needs matter — did you take care of you today?</p>

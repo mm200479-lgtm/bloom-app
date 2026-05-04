@@ -68,13 +68,14 @@ Understanding your triggers is powerful. When you can name what's happening ("I'
   },
 ];
 
-function LearnPage() {
+function LearnPage({ onBack }) {
   const [openTopic, setOpenTopic] = useState(null);
 
   const toggle = (i) => setOpenTopic(openTopic === i ? null : i);
 
   return (
     <div className="learn-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Learn 📚</h1>
         <p className="page-subtitle">Understanding what's happening in your brain changes everything</p>

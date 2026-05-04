@@ -26,7 +26,7 @@ const ACHIEVEMENT_DEFS = [
   { id: 'petals_500', name: '500 Petals', emoji: '💐', description: 'Earn 500 petals — incredible!' },
 ];
 
-function AchievementsPage() {
+function AchievementsPage({ onBack }) {
   const [achievements, setAchievements] = useState({ unlocked: [], seen: [] });
   const [newUnlocks, setNewUnlocks] = useState([]);
 
@@ -78,6 +78,7 @@ function AchievementsPage() {
 
   return (
     <div className="achievements-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Achievements 🏆</h1>
         <p className="page-subtitle">Look how far you've come</p>

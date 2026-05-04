@@ -1,0 +1,15 @@
+.affirmations-page { padding: 20px 16px; }
+
+.random-affirmation-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 12px; border-radius: 12px; background: var(--bg-secondary); color: var(--text-secondary); font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.random-affirmation-btn:hover { background: var(--lavender); }
+
+.random-affirmation-card { text-align: center; padding: 24px 20px; background: linear-gradient(135deg, var(--lavender), var(--blush)); border-radius: 16px; margin-bottom: 16px; }
+.random-affirmation-text { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 10px; line-height: 1.5; }
+
+.affirmation-form { padding: 14px; margin-bottom: 16px; }
+.affirmation-form .form-actions { display: flex; gap: 8px; margin-top: 8px; }
+
+.affirmation-section { margin-bottom: 16px; }
+.affirmation-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 6px; }
+.affirmation-item.builtin { opacity: 0.85; }
+.affirmation-text { font-size: 13px; font-weight: 600; color: var(--text-primary); flex: 1; }

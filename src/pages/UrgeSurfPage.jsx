@@ -25,7 +25,7 @@ const DISTRACTIONS = [
   'Watch a funny video',
 ];
 
-function UrgeSurfPage() {
+function UrgeSurfPage({ onBack }) {
   const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
   const [running, setRunning] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -70,6 +70,7 @@ function UrgeSurfPage() {
 
   return (
     <div className="urgesurf-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Urge Surfing 🌊</h1>
         <p className="page-subtitle">Urges peak and pass. You can ride this wave.</p>

@@ -11,7 +11,7 @@ const CATEGORIES = [
   { value: 'other', label: 'Other', emoji: '💫' },
 ];
 
-function BucketListPage() {
+function BucketListPage({ onBack }) {
   const [items, setItems] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
   const [text, setText] = useState('');
@@ -47,6 +47,7 @@ function BucketListPage() {
 
   return (
     <div className="bucket-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Bucket List ⭐</h1>
         <p className="page-subtitle">Big dreams and small ones — they all count</p>

@@ -5,7 +5,7 @@ import './DreamPage.css';
 
 const MOODS = ['😊 Happy', '😰 Anxious', '😢 Sad', '😡 Angry', '🤔 Confused', '😌 Peaceful', '😱 Scary', '🤩 Exciting', '😶 Neutral'];
 
-function DreamPage() {
+function DreamPage({ onBack }) {
   const [dreams, setDreams] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [description, setDescription] = useState('');
@@ -27,6 +27,7 @@ function DreamPage() {
 
   return (
     <div className="dream-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Dream Journal 🌙</h1>
         <p className="page-subtitle">Capture your dreams before they fade</p>

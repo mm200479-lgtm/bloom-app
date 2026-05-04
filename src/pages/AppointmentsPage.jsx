@@ -10,7 +10,7 @@ const TYPES = [
   { value: 'other', label: 'Other', emoji: '📋' },
 ];
 
-function AppointmentsPage() {
+function AppointmentsPage({ onBack }) {
   const [appointments, setAppointments] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
@@ -54,6 +54,7 @@ function AppointmentsPage() {
 
   return (
     <div className="appointments-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Appointments 📅</h1>
         <p className="page-subtitle">Keep track of what's coming up</p>

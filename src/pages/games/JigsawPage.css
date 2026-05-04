@@ -1,0 +1,107 @@
+.jigsaw-page {
+  padding: 20px 16px;
+}
+
+.jig-image-picker {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.jig-img-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.jig-img-btn.active {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.jig-stats {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.jig-stat {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.jig-complete {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.jig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+
+.jig-piece {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.jig-piece.selected {
+  border-color: var(--lavender-dark);
+  box-shadow: 0 0 12px rgba(168, 130, 220, 0.5);
+  transform: scale(1.05);
+}
+
+.jig-piece.solved {
+  border-color: transparent;
+  cursor: default;
+}
+
+.jig-piece:hover:not(.solved) {
+  transform: scale(1.03);
+}
+
+.jig-piece-num {
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

@@ -1,0 +1,23 @@
+.boundaries-page { padding: 20px 16px; }
+
+.boundary-stats { display: flex; align-items: center; gap: 8px; padding: 12px 14px; margin-bottom: 16px; font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+
+.boundary-category { margin-bottom: 10px; padding: 0; overflow: hidden; }
+.boundary-cat-header { display: flex; align-items: center; gap: 8px; width: 100%; padding: 14px; font-size: 15px; font-weight: 700; color: var(--text-primary); background: none; }
+.boundary-cat-count { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--text-light); }
+
+.boundary-list { padding: 0 14px 14px; }
+.boundary-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--bg-secondary); }
+.boundary-item:last-of-type { border-bottom: none; }
+.boundary-item.communicated .boundary-text { text-decoration: line-through; opacity: 0.6; }
+
+.boundary-check { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--lavender-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--sage-dark); background: none; }
+.boundary-item.communicated .boundary-check { background: var(--sage); border-color: var(--sage); color: white; }
+.boundary-circle { width: 8px; height: 8px; border-radius: 50%; }
+
+.boundary-text { font-size: 13px; color: var(--text-primary); line-height: 1.4; padding-top: 2px; }
+
+.boundary-add-form { margin-top: 8px; }
+.boundary-add-form .form-actions { display: flex; gap: 6px; margin-top: 6px; }
+
+.boundary-add-btn { display: flex; align-items: center; gap: 4px; padding: 8px 0; font-size: 13px; font-weight: 600; color: var(--lavender-dark); background: none; margin-top: 4px; }

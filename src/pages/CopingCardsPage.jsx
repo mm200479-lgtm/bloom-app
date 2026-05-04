@@ -29,7 +29,7 @@ const CARDS = [
   { text: "Rest is not lazy. Rest is how you heal.", color: "var(--sky)", emoji: "😴" },
 ];
 
-function CopingCardsPage() {
+function CopingCardsPage({ onBack }) {
   const [index, setIndex] = useState(0);
   const [animDir, setAnimDir] = useState('');
 
@@ -61,6 +61,7 @@ function CopingCardsPage() {
 
   return (
     <div className="coping-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Coping Cards</h1>
         <p className="page-subtitle">Swipe through when you need a reminder 💜</p>

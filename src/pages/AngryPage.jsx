@@ -15,13 +15,14 @@ const LEVELS = [
   { value: 10, label: 'Crisis', color: '#c86a6a', emoji: '🆘', strategies: ['This is a crisis level. Please reach out for help.', 'Text HOME to 741741 (Crisis Text Line).', 'Call 988 (Suicide & Crisis Lifeline).', 'You will get through this. You always have.'] },
 ];
 
-function AngryPage() {
+function AngryPage({ onBack }) {
   const [selected, setSelected] = useState(null);
 
   const level = selected ? LEVELS.find(l => l.value === selected) : null;
 
   return (
     <div className="angry-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Anger Thermometer 🌡️</h1>
         <p className="page-subtitle">Anger is valid — how you handle it matters</p>

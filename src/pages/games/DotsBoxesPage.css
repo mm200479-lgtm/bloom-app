@@ -1,0 +1,146 @@
+.dotsboxes-page {
+  padding: 20px 16px;
+}
+
+.db-scores {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.db-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  transition: all 0.3s ease;
+}
+
+.db-score.active {
+  background: var(--lavender);
+  transform: scale(1.05);
+}
+
+.db-score-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.db-score-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.db-result {
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.db-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.db-row {
+  display: flex;
+  align-items: center;
+}
+
+.db-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.db-line {
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.db-h-line {
+  width: 50px;
+  height: 8px;
+  background: var(--border);
+}
+
+.db-v-line {
+  width: 8px;
+  height: 50px;
+  background: var(--border);
+}
+
+.db-h-line:hover:not(:disabled),
+.db-v-line:hover:not(:disabled) {
+  background: var(--lavender);
+}
+
+.db-line.filled-player {
+  background: var(--lavender-dark);
+}
+
+.db-line.filled-ai {
+  background: var(--sage-dark);
+}
+
+.db-line:disabled {
+  cursor: default;
+}
+
+.db-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.db-box.box-player {
+  background: var(--lavender);
+  animation: boxClaim 0.3s ease;
+}
+
+.db-box.box-ai {
+  background: var(--sage);
+  animation: boxClaim 0.3s ease;
+}
+
+@keyframes boxClaim {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: var(--blush);
+}

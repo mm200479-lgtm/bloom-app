@@ -3,7 +3,7 @@ import { Calendar, Heart, Moon, Plus, ChevronLeft, ChevronRight } from 'lucide-r
 import { getPeriodData, savePeriodData } from '../utils/storage';
 import './PeriodPage.css';
 
-function PeriodPage() {
+function PeriodPage({ onBack }) {
   const [data, setData] = useState({ logs: [], cycleLength: 28 });
   const [showAdd, setShowAdd] = useState(false);
   const [startDate, setStartDate] = useState('');
@@ -79,6 +79,7 @@ function PeriodPage() {
 
   return (
     <div className="period-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Period Tracker 🌙</h1>
         <p className="page-subtitle">Understanding your cycle is understanding yourself</p>

@@ -3,7 +3,7 @@ import { Camera, Trash2, X } from 'lucide-react';
 import { getPhotos, addPhoto, deletePhoto } from '../utils/storage';
 import './PhotoJournalPage.css';
 
-function PhotoJournalPage() {
+function PhotoJournalPage({ onBack }) {
   const [photos, setPhotos] = useState([]);
   const [caption, setCaption] = useState('');
   const [preview, setPreview] = useState(null);
@@ -56,6 +56,7 @@ function PhotoJournalPage() {
 
   return (
     <div className="photo-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Photo Journal</h1>
         <p className="page-subtitle">One photo a day — capture something, anything 📸</p>

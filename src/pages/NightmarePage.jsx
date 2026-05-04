@@ -12,7 +12,7 @@ const GROUNDING_STEPS = [
   'You are safe. You are here. The nightmare is over. 💜',
 ];
 
-function NightmarePage() {
+function NightmarePage({ onBack }) {
   const [nightmares, setNightmares] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [description, setDescription] = useState('');
@@ -43,6 +43,7 @@ function NightmarePage() {
 
   return (
     <div className="nightmare-page">
+      {onBack && <button className="back-btn" onClick={onBack}>← Back</button>}
       <header className="page-header">
         <h1>Nightmare Journal 🌙</h1>
         <p className="page-subtitle">Writing it down takes away some of its power</p>
