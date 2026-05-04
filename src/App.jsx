@@ -105,6 +105,7 @@ const TABS = [
 function App() {
   const [profile, setProfile] = useState(getActiveProfile());
   const [activeTab, setActiveTab] = useState('home');
+  const [navHistory, setNavHistory] = useState([]);
   const [settings, setSettings] = useState({ theme: 'light', colorScheme: 'lavender' });
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [syncing, setSyncing] = useState(false);
@@ -131,7 +132,25 @@ function App() {
     if (settings.colorScheme) root.setAttribute('data-color', settings.colorScheme);
   }, [settings]);
 
-  const nav = (tab) => { setActiveTab(tab); window.scrollTo(0, 0); };
+  const nav = (tab) => {
+    // Push current page to history before navigating (unless going to same page)
+    if (tab !== activeTab) {
+      setNavHistory(prev => [...prev, activeTab]);
+    }
+    setActiveTab(tab);
+    window.scrollTo(0, 0);
+  };
+
+  const back = () => {
+    if (navHistory.length > 0) {
+      const prev = navHistory[navHistory.length - 1];
+      setNavHistory(h => h.slice(0, -1));
+      setActiveTab(prev);
+    } else {
+      setActiveTab('home');
+    }
+    window.scrollTo(0, 0);
+  };
 
   const handleProfileSelected = (p) => {
     setProfile(p); setSettings(getSettings());
@@ -139,8 +158,6 @@ function App() {
   };
 
   if (!profile) return <ProfilePage onProfileSelected={handleProfileSelected} firebaseUser={firebaseUser} />;
-
-  const back = () => nav('home');
 
   const PAGE_MAP = {
     // Special pages
@@ -247,7 +264,7 @@ function App() {
           const isActive = activeTab === tab.id;
           return (
             <button key={tab.id} className={`nav-btn ${isActive ? 'active' : ''}`}
-              onClick={() => nav(tab.id)} aria-label={tab.label}
+              onClick={() => { setNavHistory([]); setActiveTab(tab.id); window.scrollTo(0, 0); }} aria-label={tab.label}
               aria-current={isActive ? 'page' : undefined}>
               <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
               <span className="nav-label">{tab.label}</span>
