@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Flame, Sun, Moon, Star } from 'lucide-react';
-import { getStreaks, getMoods, getGarden, getWins } from '../utils/storage';
+import { Heart, Flame, Sun, Moon, Star, ChevronRight } from 'lucide-react';
+import { getStreaks, getMoods, getGarden, getWins, getEnergyLogs, getSleepLogs, getSettings } from '../utils/storage';
 import './HomePage.css';
+
+function getTimeOfDay() {
+  const h = new Date().getHours();
+  if (h < 12) return 'morning';
+  if (h < 17) return 'afternoon';
+  if (h < 21) return 'evening';
+  return 'night';
+}
 
 function greetings(name) {
   const n = name ? `, ${name}` : '';
@@ -11,14 +19,6 @@ function greetings(name) {
     evening: { text: `Good evening${n}`, icon: Moon, note: 'Time to wind down gently 🌙' },
     night: { text: `Hey there${n}`, icon: Star, note: 'Rest is important too 💜' },
   };
-}
-
-function getTimeOfDay() {
-  const hour = new Date().getHours();
-  if (hour < 12) return 'morning';
-  if (hour < 17) return 'afternoon';
-  if (hour < 21) return 'evening';
-  return 'night';
 }
 
 const AFFIRMATIONS = [
@@ -39,9 +39,100 @@ const AFFIRMATIONS = [
   "Healing isn't linear, and that's okay.",
 ];
 
+const CATEGORIES = [
+  {
+    id: 'track', title: 'Track', emoji: '📊', color: 'var(--sky)',
+    desc: 'Check in with yourself',
+    items: [
+      { id: 'mood', emoji: '💜', label: 'Mood' },
+      { id: 'energy', emoji: '🔋', label: 'Energy' },
+      { id: 'sleep', emoji: '😴', label: 'Sleep' },
+      { id: 'period', emoji: '🩸', label: 'Period' },
+      { id: 'social', emoji: '👥', label: 'Social Battery' },
+      { id: 'triggers', emoji: '📋', label: 'Triggers' },
+      { id: 'insights', emoji: '📊', label: 'Insights' },
+    ]
+  },
+  {
+    id: 'write', title: 'Write', emoji: '📝', color: 'var(--blush)',
+    desc: 'Express & reflect',
+    items: [
+      { id: 'journal', emoji: '📝', label: 'Journal' },
+      { id: 'photos', emoji: '📸', label: 'Photo Journal' },
+      { id: 'wins', emoji: '🏆', label: 'Win Jar' },
+      { id: 'letters', emoji: '💌', label: 'Letters to Self' },
+      { id: 'dreams', emoji: '💭', label: 'Dreams' },
+      { id: 'nightmares', emoji: '🌙', label: 'Nightmares' },
+      { id: 'quotes', emoji: '💬', label: 'Quotes' },
+      { id: 'braindump', emoji: '🧠', label: 'Brain Dump' },
+    ]
+  },
+  {
+    id: 'calm', title: 'Calm', emoji: '🧘', color: 'var(--sage)',
+    desc: 'Ground & soothe',
+    items: [
+      { id: 'grounding', emoji: '🌊', label: 'Grounding' },
+      { id: 'coping', emoji: '💜', label: 'Coping Cards' },
+      { id: 'sounds', emoji: '🎵', label: 'Sounds' },
+      { id: 'dbt', emoji: '🧰', label: 'DBT Skills' },
+      { id: 'thought', emoji: '💡', label: 'Thought Challenger' },
+      { id: 'emotions', emoji: '🎯', label: 'Emotion Wheel' },
+      { id: 'angry', emoji: '🌡️', label: 'Anger Thermometer' },
+      { id: 'bodymap', emoji: '🫀', label: 'Body Map' },
+      { id: 'urgesurf', emoji: '🏄', label: 'Urge Surfing' },
+      { id: 'worrytime', emoji: '⏰', label: 'Worry Time' },
+      { id: 'distraction', emoji: '📦', label: 'Distraction Box' },
+      { id: 'sensory', emoji: '✋', label: 'Sensory Kit' },
+    ]
+  },
+  {
+    id: 'safety', title: 'Safety', emoji: '🛡️', color: '#f0e0e8',
+    desc: 'Support & crisis tools',
+    items: [
+      { id: 'safety', emoji: '🛡️', label: 'Safety Plan' },
+      { id: 'debrief', emoji: '📋', label: 'Crisis Debrief' },
+      { id: 'scripts', emoji: '💬', label: 'Conversation Scripts' },
+    ]
+  },
+  {
+    id: 'school', title: 'School & ADHD', emoji: '📚', color: 'var(--lavender)',
+    desc: 'Focus, plan, get it done',
+    items: [
+      { id: 'routines', emoji: '⏰', label: 'Routines' },
+      { id: 'pomodoro', emoji: '🍅', label: 'Focus Timer' },
+      { id: 'homework', emoji: '📚', label: 'Homework' },
+      { id: 'goals', emoji: '🎯', label: 'Goals' },
+      { id: 'tasks', emoji: '✨', label: 'Tasks' },
+      { id: 'appointments', emoji: '📅', label: 'Appointments' },
+      { id: 'meds', emoji: '💊', label: 'Medications' },
+    ]
+  },
+  {
+    id: 'selfcare', title: 'Self-Care', emoji: '💪', color: '#e8f0d8',
+    desc: 'Take care of your body',
+    items: [
+      { id: 'selfcare', emoji: '💧', label: 'Water/Meals/Move' },
+      { id: 'activity', emoji: '💡', label: 'Activity Ideas' },
+      { id: 'rewardmenu', emoji: '🎁', label: 'Reward Menu' },
+    ]
+  },
+  {
+    id: 'fun', title: 'Fun & Growth', emoji: '🌸', color: '#f5e8d0',
+    desc: 'Rewards, dreams & play',
+    items: [
+      { id: 'garden', emoji: '🌸', label: 'My Garden' },
+      { id: 'achievements', emoji: '🏅', label: 'Achievements' },
+      { id: 'bucketlist', emoji: '✨', label: 'Bucket List' },
+      { id: 'playlists', emoji: '🎧', label: 'Playlists' },
+      { id: 'learn', emoji: '📖', label: 'Learn About It' },
+    ]
+  },
+];
+
 function HomePage({ onNavigate, profile }) {
-  const [streaks] = useState(getStreaks());
-  const [affirmation, setAffirmation] = useState('');
+  const [affirmation] = useState(AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)]);
+  const [expandedCat, setExpandedCat] = useState(null);
+  const streaks = getStreaks();
   const garden = getGarden();
   const wins = getWins();
   const timeOfDay = getTimeOfDay();
@@ -49,32 +140,17 @@ function HomePage({ onNavigate, profile }) {
   const greeting = GREETINGS[timeOfDay];
   const GreetingIcon = greeting.icon;
 
-  useEffect(() => {
-    setAffirmation(AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)]);
-  }, []);
-
   const todaysMoods = getMoods().filter(m =>
     new Date(m.timestamp).toDateString() === new Date().toDateString()
   );
 
-  const quickActions = [
-    { id: 'mood', label: 'Check in', emoji: '💜', color: 'var(--lavender)' },
-    { id: 'grounding', label: 'Calm down', emoji: '🌊', color: 'var(--sky)' },
-    { id: 'tasks', label: 'My tasks', emoji: '✨', color: 'var(--sage)' },
-    { id: 'journal', label: 'Write', emoji: '📝', color: 'var(--blush)' },
-  ];
-
-  const moreTools = [
-    { id: 'coping', label: 'Coping Cards', emoji: '💜' },
-    { id: 'sounds', label: 'Sounds', emoji: '🎵' },
-    { id: 'pomodoro', label: 'Focus Timer', emoji: '🍅' },
-    { id: 'activity', label: 'Activity Ideas', emoji: '💡' },
-    { id: 'routines', label: 'Routines', emoji: '⏰' },
-    { id: 'wins', label: 'Win Jar', emoji: '🏆' },
-  ];
+  const toggleCat = (id) => {
+    setExpandedCat(expandedCat === id ? null : id);
+  };
 
   return (
     <div className="home-page">
+      {/* Header */}
       <header className="home-header fade-in">
         <div className="greeting-row">
           <span className="header-avatar">{profile?.avatar || '🌸'}</span>
@@ -89,93 +165,104 @@ function HomePage({ onNavigate, profile }) {
         </div>
       </header>
 
+      {/* Affirmation */}
       <section className="affirmation-card slide-up" aria-label="Daily affirmation">
         <Heart size={16} color="var(--blush-dark)" />
         <p className="affirmation-text">{affirmation}</p>
       </section>
 
+      {/* Stats row */}
       <div className="stats-row fade-in">
         {streaks.currentStreak > 0 && (
-          <div className="stat-chip">
-            <Flame size={14} color="#e8a060" />
-            <span>{streaks.currentStreak} day streak</span>
-          </div>
+          <div className="stat-chip"><Flame size={14} color="#e8a060" /><span>{streaks.currentStreak} day streak</span></div>
         )}
         {garden.totalPetals > 0 && (
-          <div className="stat-chip">
-            <span>🌸</span>
-            <span>{garden.petals} petals</span>
-          </div>
+          <div className="stat-chip"><span>🌸</span><span>{garden.petals} petals</span></div>
         )}
         {garden.flowers.length > 0 && (
-          <div className="stat-chip">
-            <span>🌱</span>
-            <span>{garden.flowers.length} plants</span>
-          </div>
+          <div className="stat-chip"><span>🌱</span><span>{garden.flowers.length} plants</span></div>
         )}
         {wins.length > 0 && (
-          <div className="stat-chip">
-            <span>⭐</span>
-            <span>{wins.length} wins</span>
-          </div>
+          <div className="stat-chip"><span>⭐</span><span>{wins.length} wins</span></div>
         )}
       </div>
 
-      <section className="quick-actions" aria-label="Quick actions">
-        <h3 className="section-title">What do you need right now?</h3>
-        <div className="action-grid">
-          {quickActions.map(action => (
-            <button
-              key={action.id}
-              className="action-card"
-              style={{ background: action.color }}
-              onClick={() => onNavigate(action.id)}
-              aria-label={action.label}
-            >
-              <span className="action-emoji">{action.emoji}</span>
-              <span className="action-label">{action.label}</span>
-            </button>
-          ))}
-        </div>
+      {/* Quick actions */}
+      <section className="quick-row">
+        <button className="quick-btn" style={{ background: 'var(--lavender)' }} onClick={() => onNavigate('mood')}>
+          <span>💜</span><span>Check in</span>
+        </button>
+        <button className="quick-btn" style={{ background: 'var(--sky)' }} onClick={() => onNavigate('grounding')}>
+          <span>🌊</span><span>Calm</span>
+        </button>
+        <button className="quick-btn" style={{ background: 'var(--sage)' }} onClick={() => onNavigate('journal')}>
+          <span>📝</span><span>Write</span>
+        </button>
+        <button className="quick-btn" style={{ background: 'var(--blush)' }} onClick={() => onNavigate('safety')}>
+          <span>🛡️</span><span>Safety</span>
+        </button>
       </section>
 
-      <section className="more-tools" aria-label="More tools">
-        <div className="tools-scroll">
-          {moreTools.map(tool => (
-            <button
-              key={tool.id}
-              className="tool-chip"
-              onClick={() => onNavigate(tool.id)}
-            >
-              <span>{tool.emoji}</span>
-              <span>{tool.label}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
+      {/* Today's moods */}
       {todaysMoods.length > 0 && (
-        <section className="today-moods fade-in" aria-label="Today's mood check-ins">
-          <h3 className="section-title">Today's check-ins</h3>
+        <section className="today-moods fade-in">
           <div className="mood-pills">
             {todaysMoods.map(m => (
               <span key={m.id} className="mood-pill">
                 {m.emoji} {m.label}
-                <span className="mood-time">
-                  {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </span>
               </span>
             ))}
           </div>
         </section>
       )}
 
-      <section className="safety-reminder fade-in">
-        <button className="safety-btn" onClick={() => onNavigate('safety')}>
-          🛡️ My Safety Plan
-        </button>
-        <p className="safety-note">Always here when you need it</p>
+      {/* Category tiles */}
+      <section className="categories-section">
+        <h3 className="section-title">Everything you need</h3>
+        <div className="category-list">
+          {CATEGORIES.map(cat => {
+            const isOpen = expandedCat === cat.id;
+            return (
+              <div key={cat.id} className={`category-tile ${isOpen ? 'open' : ''}`}>
+                <button
+                  className="category-header"
+                  style={{ background: cat.color }}
+                  onClick={() => toggleCat(cat.id)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="cat-left">
+                    <span className="cat-emoji">{cat.emoji}</span>
+                    <div>
+                      <span className="cat-title">{cat.title}</span>
+                      <span className="cat-desc">{cat.desc}</span>
+                    </div>
+                  </div>
+                  <ChevronRight size={18} className={`cat-arrow ${isOpen ? 'rotated' : ''}`} />
+                </button>
+                {isOpen && (
+                  <div className="category-items slide-up">
+                    {cat.items.map(item => (
+                      <button
+                        key={item.id}
+                        className="cat-item"
+                        onClick={() => onNavigate(item.id)}
+                      >
+                        <span className="cat-item-emoji">{item.emoji}</span>
+                        <span className="cat-item-label">{item.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </section>
+
+      {/* Settings link */}
+      <button className="settings-link" onClick={() => onNavigate('settings')}>
+        ⚙️ Settings
+      </button>
     </div>
   );
 }
